@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer")
+const { getMaxListeners } = require("nodemailer/lib/xoauth2")
 
 function createTransport() {
     return nodemailer.createTransport({
