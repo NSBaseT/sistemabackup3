@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global/font.css">
+    <link rel="stylesheet" href="cadastro_convenio.css">
+   
+    <title>cadastro_convenio</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="heading">Cadastro de Convênio</div> <br>
+        <center>
+            <div><b>NS BaseTech</b></div>
+            <div class="hr-customizado"></div>
+        </center>
+        <form onsubmit="cadastro_convenio(event)" class="form">
+
+            <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_cvn">
+            <input class="input" type="text" name="name_cvn" id="name_cvn" placeholder="Nome do Convênio">
+            <input class="input" type="text" name="cnpj" id="cnpj" placeholder="CNPJ" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}">
+            <input class="input" type="text" name="valores" id="valores" placeholder="Valores">
+            <h4 class="margem">Data de Contratação</h4>
+            <input class="input" type="date" name="data_contratacao" id="data_contratacao"
+            placeholder="Data de Contratação">
+            
+            <input class="login-button" type="submit" value="Enviar" id="btn_enviar_cvn">
+ 
+        </form>
+    </div>
+
+    <script src="../global/auth.js"></script>
+    <script type="text/javascript" src="cadastro_convenio.js"></script>
+
+</body>
+
+</html>

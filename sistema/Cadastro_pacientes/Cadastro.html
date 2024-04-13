@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global/font.css">
+    <link rel="stylesheet" href="cadastro1.css">
+    <link rel="stylesheet" href="switch.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="fluxo.css">
+
+    <title>cadastro_pacintes</title>
+</head>
+
+<body>
+<div class="switch-container">
+    <main class="off" id="main-side">
+        <h4>
+            <a class="escrita" href="../Agendamento/Agendamento.html">Agendamento</a>
+        </h4>
+        <h4>
+            <a class="escrita" href="../cadastro_user/cadastro_user.html">Cadastro de Usuário</a>
+        </h4>
+        <h4>
+            <a class="escrita" href="../cadastro_convenio/cadastro_convenio.html">Cadastro de Convênio</a>
+        </h4>
+
+    </main>
+    <label class="switch">
+        <input type="checkbox" id="ch-side">
+        <span class="slider"></span>
+    </label>
+</div>
+<div class="container">
+
+    <div class="heading">Cadastro de Pacientes</div>
+    <br>
+    <center>
+        <div><b>NS BaseTech</b></div>
+        <div class="hr-customizado"></div>
+    </center>
+    <form onsubmit="cadastrar_paciente(event)" class="form">
+
+        <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
+        <input class="input" name="name" id="name" placeholder="Nome"></input>
+        <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
+        <input class="input" name="email" id="email" placeholder="E-mail"></input>
+
+        <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
+               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></input>
+        <input class="input"  name="address" id="address" placeholder="Endereço"></input>
+        <input class="input" type="NUMBER" name="number" id="number" placeholder="Numero"></input>
+        <input class="input" name="cep" id="cep" placeholder="CEP"></input>
+
+        <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
+
+    </form>
+
+
+    <main>
+        <div class="divTable">
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th class="columnAction"></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+
+<script src="../global/auth.js"></script>
+<script type="text/javascript" src="cadastro.js"></script>
+<script src="fluxo.js"></script>
+
+</body>
+
+</html>

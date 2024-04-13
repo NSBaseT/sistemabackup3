@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global/font.css">
+    <link rel="stylesheet" href="cadastro_user.css">
+   
+    <title>cadastro_usuario</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="heading">Cadastro de Usuário</div> <br>
+        <center>
+            <div><b>NS BaseTech</b></div>
+            <div class="hr-customizado"></div>
+        </center>
+        <form onsubmit="cadastro_user(event)" class="form">
+
+            <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_b">
+            <input class="input" type="NAME" name="name" id="name" placeholder="Nome">
+            <input class="input" type="EMAIL" name="email" id="email" placeholder="E-mail">
+            <input class="input" type="user" name="user" id="user" placeholder="Usuario">
+            <input class="input" type="password" name="senha" id="senha" placeholder="Senha">
+            <input class="input" type="password" name="c_senha" id="c_senha" placeholder="Confirme sua senha">
+            <input class="input" type="checkbox" name="profissional" id="profissional"> Profissional
+            <input class="input" type="checkbox" name="secretaria" id="secretaria"> Secretaria
+            <input class="login-button" type="submit" value="Enviar" id="btn_enviar_caduser">
+
+            <p>Já possui uma conta? <a href="../Login/Login.html">Entrar</a></p>
+
+
+        </form>
+    </div>
+
+    <script src="../global/auth.js"></script>
+    <script type="text/javascript" src="cadastro_user.js"></script>
+
+</body>
+
+</html>
