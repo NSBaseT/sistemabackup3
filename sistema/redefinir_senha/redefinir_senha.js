@@ -13,7 +13,7 @@ function resetar_senha(event) {
 
 
     if (inp_senha.value !== inp_c_senha.value) {
-        alert("amigo, a senha n bate")
+        alert("Senha Incorreta, tente novamente")
         return
     }
 
