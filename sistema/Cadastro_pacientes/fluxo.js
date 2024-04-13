@@ -19,7 +19,7 @@ function insertItem(item, index) {
     <td>${item.Nome}</td>
   </td>
     <td class="columnAction">
-      <button onclick="editarItem(${index})"><i class='bx bx-trash'></i></button>
+      <button onclick="editarItem(${index})"><i class='bx bx-pencil'></i></button>
     </td>
   `;
 

@@ -157,6 +157,9 @@ input:checked+.slider:before {
     position: relative;
     margin-top: 5%;
     left: 50%;
+    position: relative;
+    margin-top: 5%;
+    left: 50%;
     width: 150px;
     height: 100px;
     border-radius: 15px;
@@ -216,9 +219,7 @@ input:checked+.slider:before {
     box-shadow: none;
 }
 
-.logo {
-    z-index: auto;
-    position: absolute;
-    top:25%;
-    left:8%;
+
+a {
+    color: inherit; /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
 }
