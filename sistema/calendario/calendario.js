@@ -1,6 +1,6 @@
 
 
-//verificaAutenticado()
+verificaAutenticado()
 
 const modAgen = document.getElementById('mod-agen')
 

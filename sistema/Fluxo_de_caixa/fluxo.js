@@ -1,4 +1,4 @@
-//verificaAutenticado()
+verificaAutenticado()
 
 
 const tbody = document.querySelector("tbody");

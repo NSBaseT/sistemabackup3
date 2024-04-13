@@ -1,4 +1,4 @@
-//verificaNaoAutenticado()
+verificaNaoAutenticado()
 
  document.getElementById("form-login").addEventListener("submit", (e) => {
   e.preventDefault()
