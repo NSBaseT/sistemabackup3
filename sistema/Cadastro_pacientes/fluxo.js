@@ -44,3 +44,12 @@ const getItensBD = async () => {
 
 
 loadItens();
+
+function mostrarDivTable() {
+  var tableContainer = document.getElementById("table-container");
+  if (tableContainer.style.display === "none") {
+      tableContainer.style.display = "block";
+  } else {
+      tableContainer.style.display = "none";
+  }
+}

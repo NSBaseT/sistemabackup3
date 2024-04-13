@@ -86,7 +86,7 @@ body {
 
 .form .login-button {
   display: block;
-  width: 20%;
+  width: 30%;
   font-weight: bold;
   background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
   color: white;

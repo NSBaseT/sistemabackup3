@@ -45,6 +45,8 @@
     <form onsubmit="cadastrar_paciente(event)" class="form">
 
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
+        
+
         <input class="input" name="name" id="name" placeholder="Nome"></input>
         <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
         <input class="input" name="email" id="email" placeholder="E-mail"></input>
@@ -56,11 +58,13 @@
         <input class="input" name="cep" id="cep" placeholder="CEP"></input>
 
         <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
-
+        <input class="login-button" type="button" onclick="mostrarDivTable()" value="LISTA DE PACIENTES"></input>
     </form>
 
 
-    <main>
+   
+    
+    <main id="table-container" style="display: none;">
         <div class="divTable">
             <table>
                 <thead>
@@ -75,6 +79,9 @@
             </table>
         </div>
     </main>
+    
+
+
 </div>
 
 
