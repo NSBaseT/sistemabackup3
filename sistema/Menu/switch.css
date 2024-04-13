@@ -133,7 +133,11 @@ input:checked+.slider:before {
     }
 }
 
-.button {
+.button,
+.button1,
+.button2,
+.button3 {
+    z-index: 2;
     position: relative;
     margin-top: 5%;
     left: 50%;
@@ -154,68 +158,70 @@ input:checked+.slider:before {
 }
 
 .button1 {
-    position: relative;
-    margin-top: 5%;
     left: 50%;
-    position: relative;
-    margin-top: 5%;
-    left: 50%;
+}
+
+.button2 {
+    left: 56.5%;
+}
+
+.button3 {
+    left: 56.5%;
+}
+
+
+.backdrop,
+.backdrop1,
+.backdrop2,
+.backdrop3 {
+    position: absolute;
+    z-index: 1;
     width: 150px;
     height: 100px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
     border-radius: 15px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 0px;
-    cursor: pointer;
-    outline: 0px;
-    padding: 0 2px;
-    font-weight: 600;
-    font-size: 13px;
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transition: all ease-in-out 0.5s; /* Esta transição deve ser aplicada a todos os backdrops */
 }
 
 .backdrop {
-    position: absolute;
-    z-index: -1;
-    width: 150px;
-    height: 100px;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    top: 40%;
-    left: 58%;
-    border-radius: 15px;
-    transform: translateX(-50%) translateY(-50%);
-    transition: all ease-in-out 0.5s;
+    top: 33%;
+    left: 53.5%;
 }
 
 .backdrop1 {
-    position: absolute;
-    z-index: -1;
-    width: 150px;
-    height: 100px;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    top: 65%;
-    left: 58%;
-    border-radius: 15px;
-    transform: translateX(-50%) translateY(-50%);
-    transition: all ease-in-out 0.5s;
+    top: 56%;
+    left: 53.5%;
 }
 
-.button:hover+.backdrop {
-    top: 50;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    transform: rotate(15deg) translateX(-50%) translateY(-50%);
+.backdrop2 {
+    top: 33%;
+    left: 68.4%;
 }
 
-.button:hover+.backdrop1 {
-    top: 50;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    transform: rotate(15deg) translateX(-50%) translateY(-50%);
+.backdrop3 {
+    top: 56%;
+    left: 68.4%;
 }
+
+
+.button:hover+.backdrop,
+.button1:hover+.backdrop1,
+.button2:hover+.backdrop2,
+.button3:hover+.backdrop3{
+    top: 80;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform: rotate(15deg) translateX(5%) translateY(-20%);
+}
+
 
 .button:active,
-.button:active+.backdrop {
+.button:active+.backdrop,
+.button1:active,
+.button1:active+.backdrop1,
+.button2:active,
+.button2:active+.backdrop2,
+.button3:active,
+.button3:active+.backdrop3 {
     box-shadow: none;
 }
 

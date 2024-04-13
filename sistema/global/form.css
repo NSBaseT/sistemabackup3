@@ -9,7 +9,7 @@ body {
 
   .container {
     
-    transform: translateZ(-1px);
+    z-index: 0;
     display: relative;
     width: 890px;
     background: #f8fdfd;

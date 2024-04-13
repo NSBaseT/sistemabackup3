@@ -45,11 +45,16 @@
     <form onsubmit="cadastrar_paciente(event)" class="form">
 
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
+
+        <select style="padding: 8px; background: white; border-radius: 8px" id="lista">
+            <option value="-">Selecione um especialista</option>
+        </select>
         
 
         <input class="input" name="name" id="name" placeholder="Nome"></input>
         <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
         <input class="input" name="email" id="email" placeholder="E-mail"></input>
+
 
         <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></input>
@@ -58,28 +63,16 @@
         <input class="input" name="cep" id="cep" placeholder="CEP"></input>
 
         <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
-        <input class="login-button" type="button" onclick="mostrarDivTable()" value="LISTA DE PACIENTES"></input>
-    </form>
+        
+        <div>
+            <button class="login-button">
+                <a href="../Cadastro_pacientes/lista_pacientes.html">
+                    <i class="bi bi-person-lines-fill"></i> LISTA DE PACIENTES
+                </a>
 
-
-   
-    
-    <main id="table-container" style="display: none;">
-        <div class="divTable">
-            <table>
-                <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th class="columnAction" ></th>
-                    
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </main>
-    
+            </button>
+    </div>
+    </form> 
 
 
 </div>
@@ -88,6 +81,7 @@
 <script src="../global/auth.js"></script>
 <script type="text/javascript" src="cadastro.js"></script>
 <script src="fluxo.js"></script>
+
 
 </body>
 

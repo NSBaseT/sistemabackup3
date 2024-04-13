@@ -13,17 +13,17 @@ function editarItem(index) {
 }
 
 function insertItem(item, index) {
+  let nomePaciente = document.getElementById("name").value;
   let tr = document.createElement("tr");
 
   tr.innerHTML = `
-    <td>${item.Nome}</td>
-  </td>
+    <td>${name}</td>
     <td class="columnAction">
-      <button onclick="editarItem(${index})"><i class='bx bx-pencil'></i></button>
+      <button onclick="editarItem()">Editar</button>
     </td>
   `;
-
-  tbody.appendChild(tr);
+  let table_container = document.getElementById("table_container");
+  table_container.appendChild(tr);
 }
 
 function loadItens() {
@@ -45,11 +45,8 @@ const getItensBD = async () => {
 
 loadItens();
 
-function mostrarDivTable() {
-  var tableContainer = document.getElementById("table-container");
-  if (tableContainer.style.display === "none") {
-      tableContainer.style.display = "block";
-  } else {
-      tableContainer.style.display = "none";
-  }
-}
+document.getElementById("lista_pacientes").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evita o envio do formulário padrão
+  insertItem(); // Chama a função insertItem para adicionar o item à tabela
+});
+
