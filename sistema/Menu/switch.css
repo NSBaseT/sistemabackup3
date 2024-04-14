@@ -210,7 +210,6 @@ input:checked+.slider:before {
     left: 70%;
 }
 
-
 .button:hover+.backdrop,
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
@@ -241,7 +240,7 @@ a {
 .logo {
     position: absolute;
     top: 50%;
-    left: 38%;
+    left: 39%;
     transform: translate(-50%, -50%);
 }
 
