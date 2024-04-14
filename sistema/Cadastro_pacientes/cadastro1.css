@@ -155,9 +155,7 @@ body {
   border: none;
   transition: all 0.2s ease-in-out;
   color: white;
-  text-transform: uppercase;
-  margin-left: 10%;
-  margin-right: 0%;
+  text-transform: uppercase; 
   text-align: center;
 }
 
@@ -174,16 +172,11 @@ body {
   border: none;
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
-  text-transform: uppercase;
-  
-  
+  text-transform: uppercase; 
 
 }
 
-h3 {
-  margin-top: 20px;
-  /* Ajuste o valor conforme necessário */
-}
+
 
 
 .switch-container {
@@ -194,8 +187,8 @@ h3 {
   display: block;
   flex-direction: column;
   align-items: end;
-  width: 285px;
-  height: 95%;
+  width:70%;
+  height: 100%;
 }
 
 .switch-container main {
@@ -204,7 +197,7 @@ h3 {
   position: absolute;
   padding: 8px;
   padding-top: 32px;
-  width: 10%;
+  width: 20%;
   height: 100%;
   color: white;
   background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
@@ -218,7 +211,7 @@ h3 {
 
 .switch {
   font-size: 1rem;
-  position: absolute;
+  position: relative;
   display: inline-block;
   width: 4em;
   height: 2em;
