@@ -17,13 +17,16 @@
     font-weight: normal;
     color: white;
     padding-block: 5px;
-    margin: 45px auto;
+    margin: 20%;
     border-radius: 20px;
     box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
     border: none;
     transition: all 0.2s ease-in-out;
     color: white;
     text-transform: uppercase;
+    margin-left: 10%;
+    margin-right: 0%;
+    text-align: center;
 }
 
 .contato {
@@ -40,6 +43,8 @@
     transition: all 0.2s ease-in-out;
     color: rgb(0, 0, 0);
     text-transform: uppercase;
+    
+    
 
 }
 
@@ -62,11 +67,12 @@ h3 {
 }
 
 .switch-container main {
+    
     border-radius: 15px;
     position: absolute;
     padding: 8px;
     padding-top: 32px;
-    width: 100%;
+    width: 75%;
     height: 100%;
     color: white;
     background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
@@ -180,34 +186,35 @@ input:checked+.slider:before {
     height: 100px;
     background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
     border-radius: 15px;
-    transition: all ease-in-out 0.5s; /* Esta transição deve ser aplicada a todos os backdrops */
+    transition: all ease-in-out 0.5s;
+    /* Esta transição deve ser aplicada a todos os backdrops */
 }
 
 .backdrop {
     top: 33%;
-    left: 53.5%;
+    left: 55%;
 }
 
 .backdrop1 {
     top: 56%;
-    left: 53.5%;
+    left: 55%;
 }
 
 .backdrop2 {
     top: 33%;
-    left: 68.4%;
+    left: 70%;
 }
 
 .backdrop3 {
     top: 56%;
-    left: 68.4%;
+    left: 70%;
 }
 
 
 .button:hover+.backdrop,
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
-.button3:hover+.backdrop3{
+.button3:hover+.backdrop3 {
     top: 80;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     transform: rotate(15deg) translateX(5%) translateY(-20%);
@@ -227,5 +234,46 @@ input:checked+.slider:before {
 
 
 a {
-    color: inherit; /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
+    color: inherit;
+    /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+}
+
+.out-button {
+    position: absolute;   
+    bottom: 59px;   
+    left: 55%;   
+    transform: translateX(-50%);   
+    display: block;
+    width: 50%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: white;
+    padding-block: 15px;
+    margin: 10px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.inicio {
+    top: 100%;
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(18, 211, 195);
+}
+
+.nsbasetech {
+    text-align: center;
+    font-weight: 10;
+    font-size: 20px;
+    color: rgb(0, 2, 2);
 }
