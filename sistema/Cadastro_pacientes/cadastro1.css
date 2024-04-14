@@ -142,42 +142,40 @@ body {
   *::-webkit-scrollbar {
     display: none;
 }
+
 .escrita {
+  margin-top: 10%;
   display: block;
-  font-size: 15px;
+  font-size: 13.5px;
   width: 70%;
   font-weight: normal;
   color: white;
   padding-block: 5px;
-  margin: 20%;
+  margin: 15%;
   border-radius: 20px;
   box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
   border: none;
   transition: all 0.2s ease-in-out;
   color: white;
-  text-transform: uppercase; 
-  text-align: center;
+  text-transform: uppercase;
+ 
 }
 
 .contato {
-  display: block;
-  font-size: 13px;
+ 
+  font-size: 12.5px;
   width: 70%;
   font-weight: normal;
   color: white;
   padding-block: 5px;
-  margin: 8px auto;
+  margin: 0;
   border-radius: 20px;
   box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
   border: none;
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
-  text-transform: uppercase; 
-
+  text-transform: uppercase;
 }
-
-
-
 
 .switch-container {
   position: absolute;
@@ -186,16 +184,15 @@ body {
   padding: 9px;
   display: block;
   flex-direction: column;
-  align-items: end;
-  width:70%;
-  height: 100%;
+  align-items: center;
+  width:85%;
+  height: 580px;
 }
 
 .switch-container main {
   
   border-radius: 15px;
-  position: absolute;
-  padding: 8px;
+  position: absolute;  
   padding-top: 32px;
   width: 20%;
   height: 100%;
@@ -223,6 +220,14 @@ body {
   width: 0;
   height: 0;
 }
+
+a{
+  text-decoration: none;
+  margin: 0;
+  color: inherit;
+}
+
+
 
 /* The slider */
 .slider {

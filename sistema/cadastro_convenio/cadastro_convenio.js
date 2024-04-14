@@ -3,6 +3,16 @@ document.getElementById("btn_voltar_cvn").addEventListener("click", () => {
     window.location.href = '../Menu/menu.html'
 })
 
+document.getElementById("ch-side").addEventListener("change",event=>{
+    const mainSide=document.getElementById("main-side")
+    if(event.target.checked){
+       mainSide.classList.remove("off") 
+    }
+    else{
+       mainSide.classList.add("off") 
+    }
+  })
+
 
 const name_cvninp = document.getElementById("name_cvn")
 const cnpjinp = document.getElementById("cnpj")
@@ -29,3 +39,4 @@ function cadastro_convenio(event) {
         window.location.reload()
     }).catch(() => alert("Erro ao cadastrar"))
 }
+

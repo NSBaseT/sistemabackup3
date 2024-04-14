@@ -36,3 +36,13 @@ if (senhainp.value!==c_senhainp.value){
         window.location.reload()
     }).catch(() => alert("Erro ao cadastrar"))
 }
+
+ document.getElementById("ch-side").addEventListener("change",event=>{
+    const mainSide=document.getElementById("main-side")
+    if(event.target.checked){
+       mainSide.classList.remove("off") 
+    }
+    else{
+       mainSide.classList.add("off") 
+    }
+   })
