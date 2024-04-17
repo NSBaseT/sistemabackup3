@@ -89,12 +89,12 @@ function loadItens() {
 
 function getTotals() {
   const amountIncomes = items
-    .filter((item) => item.type === "Entrada")
-    .map((transaction) => Number(transaction.amount));
+    .filter((item) => item.Tipo === "Entrada")
+    .map((transaction) => Number(transaction.Valor));
 
   const amountExpenses = items
-    .filter((item) => item.type === "Saída")
-    .map((transaction) => Number(transaction.amount));
+    .filter((item) => item.Tipo === "Saída")
+    .map((transaction) => Number(transaction.Valor));
 
   const totalIncomes = amountIncomes
     .reduce((acc, cur) => acc + cur, 0)

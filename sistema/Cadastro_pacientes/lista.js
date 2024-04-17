@@ -3,7 +3,7 @@ verificaAutenticado()
 
 const tbody = document.querySelector("tbody");
 const type = document.querySelector("#type");
-let items = []
+let items;
 
 function editarItem(index) {
   const url = new URL(window.location.href)
