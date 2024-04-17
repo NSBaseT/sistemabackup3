@@ -1,200 +1,224 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-    outline: none;   
-  }
-    
-  body {
-   margin:0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
-  
-  main {    
-    margin: 0;
-    max-width: 550px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  outline: none;
+}
 
-  .container{
-    margin:10px;
-    position: absolute;
-    display: grid;
-    place-items: center;
-    width: 70%;
-    height: 98%;
-    background: #f8fdfd;
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
-    border-radius: 35px;
-    padding: 10px 50px;
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
-   
-  }
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 
-  .containertabela {
-    overflow:auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    display:inline-block;
-    place-items: center;
-    width: 800px;
-    height: 200px;
-    background: #f8fdfd;
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
-    border-radius: 15px;
-    padding: 0px 0px;
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
-    margin: 0;
-  }
+main {
+  margin: 0;
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .heading {
-    text-align: center;
-    font-weight: 900;
-    font-size: 30px;
-    color: rgb(18, 211, 195);
-  }
+.container {
+  margin: 10px;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 70%;
+  height: 98%;
+  background: #f8fdfd;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
+  border-radius: 35px;
+  padding: 10px 50px;
+  border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
 
-  .hr-customizado {
-    width: 70%;
-    /* Ajuste a largura conforme necessário */
-    margin: 5px auto;
-    /* Adiciona margem acima e abaixo da linha e centraliza horizontalmente */
-    height: 2px;
-    /* Altura da linha */
-    background-color: #000203;
-    /* Cor da linha */
-    border: none;
-    /* Remove a borda padrão */
-  
-  }
+}
 
-  .voltar-button {
-    display: block;
-    width: 20%;
-    font-weight: bold;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    color: white;
-    padding-block: 15px;
-    margin: 0;
-    border-radius: 20px;
-    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  
-  .resume {
-    
-    display: flex;
-    padding: 10px 0;
-    gap: 40px;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin:0;
-  }
-  
-  .resume > div { 
-      
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 5px #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    width: 150px;
-    margin:0;
-  }
-  
-  .newItem {
-    display: flex;
-    gap: 10px;
-    align-items: end;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .divDesc, .divType, .divAmount {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .newItem > button {
-    background-color: #2C73D2;
-    color: white;
-    border: none;
-    padding: 0 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 34px;
-  }
-  
-  input, select {
-    border: none;
-    padding: 5px;
-  }
-  
-  .divTable {    
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin:0;
-  }
-  
-  table {
-   
-    width: 98%;
-    padding: 20px 0;
-    border-radius: 5px;
-  }
-  
-  th {
-    
-    text-align: start;
-    border-bottom: inset;
-    padding-bottom: 5px;
-  }
+.containertabela {
+  overflow:auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+  place-items: center;
+  width: 800px;
+  height: 200px;
+  background: #f8fdfd;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
+  border-radius: 15px;
+  padding: 0px 0px;
+  border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
+  margin: 0;
+}
 
-  
-  i {
-    
-    font-size: 25px;
-  }
-  
-  .bxs-chevron-up-circle {
-    color: #00C9A7;
-  }
-  
-  .bxs-chevron-down-circle {
-    color: #D83121;
-  }
-  
-  .columnAction {
-    
-    width: 40px;
-    text-align: center;
-  }
-  
-  .columnAction > button {
-    
-    background: transparent;
-    border: none;
-  }
-  
-  .columnAmount {
-    width: 30%;
-  }
-  
-  .columnType {
-    width: 80px;
-    text-align: center;
-  }
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(18, 211, 195);
+}
 
+.hr-customizado {
+  width: 70%;
+  /* Ajuste a largura conforme necessário */
+  margin: 5px auto;
+  /* Adiciona margem acima e abaixo da linha e centraliza horizontalmente */
+  height: 2px;
+  /* Altura da linha */
+  background-color: #000203;
+  /* Cor da linha */
+  border: none;
+  /* Remove a borda padrão */
+
+}
+
+.voltar-button {
+  display: block;
+  width: 20%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 0;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.dementrada,
+.demsaida,
+.demtotal {
+  align-items: center;
+  font-weight: bold;
+  color: white;
+}
+
+.dementrada {
+  background-color: blue;
+}
+
+.demsaida {
+  background-color: red;
+}
+
+
+.demtotal {
+  background-color: rgb(66, 179, 171);
+}
+
+
+.resume {
+
+  display: flex;
+  padding: 10px 0;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.resume>div {
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  margin: 0;
+}
+
+.newItem {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.divDesc,
+.divType,
+.divAmount {
+  display: flex;
+  flex-direction: column;
+}
+
+.newItem>button {
+  background-color: #2C73D2;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 34px;
+}
+
+input,
+select {
+  border: none;
+  padding: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.divTable {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+table {
+
+  width: 98%;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+th {
+
+  text-align: start;
+  border-bottom: inset;
+  padding-bottom: 5px;
+}
+
+
+i {
+
+  font-size: 25px;
+}
+
+.bxs-chevron-up-circle {
+  color: #00C9A7;
+}
+
+.bxs-chevron-down-circle {
+  color: #D83121;
+}
+
+.columnAction {
+
+  width: 40px;
+  text-align: center;
+}
+
+.columnAction>button {
+
+  background: transparent;
+  border: none;
+}
+
+.columnAmount {
+  width: 30%;
+}
+
+.columnType {
+  width: 80px;
+  text-align: center;
+}
