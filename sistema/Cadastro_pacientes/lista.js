@@ -45,7 +45,7 @@ const getItensBD = async () => {
 
 loadItens();
 
-document.getElementById("lista_pacientes").addEventListener("submit", function(event) {
+document.getElementById("ch-side").addEventListener("submit", function(event) {
   event.preventDefault(); // Evita o envio do formulário padrão
   insertItem(); // Chama a função insertItem para adicionar o item à tabela
 });
