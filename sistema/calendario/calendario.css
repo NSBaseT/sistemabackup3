@@ -493,9 +493,10 @@ li::before {
   left: 35%;
   text-align: center;
   border-radius: 20px;
-  width: 35%;
+  width: 50%;
   border: none;
   margin-top: 2%;
+  padding: 1%;
 }
 
 .heading {
@@ -614,4 +615,18 @@ dialog {
 .status-confirmado {
   background-color: rgb(18, 211, 195) !important;
 }
+
+.campomenor{
+  display:inline;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+   
+}
+
+label {
+   font-weight: bold;
+}
+
+
 

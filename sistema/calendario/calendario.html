@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-   
+
+
     <title>Calendário</title>
     <link rel="stylesheet" href="calendario.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Oculta o subformulário por padrão */
+        #subform {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -25,19 +33,50 @@
         <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
 
 
-            <input class="input" type="text" name="name" id="name" placeholder="Nome">
+            <input class="input" type="text" name="name" id="name" placeholder="Nome" ,>
             <input class="input" type="text" name="phone" id="phone" placeholder="Telefone">
-            <h4 class="margem">Especialista</h4>
-            <select class="input" type="text" name="Especialista" id="especialista"></select>
+            <div class="margem">
+                <optgroup label="Especialista"></optgroup>
+                <select class="input" type="text" name="Especialista" id="especialista"></select>
+
+            </div>
+            <br>
+            <div class="input">
+                <div class="campomenor">
+                    <label for="date">Data do Atendimento</label>
+                    <input type="date" name="data_atendimento" id="data_atendimento">
+                
+                
+                    <label for="date">Horário da Consulta</label>
+                    <input type="time" name="horario_consulta" id="horario_consulta">
+                    <input type="checkbox" id="mostrarSubform"> Repetir
+                </div>
+            </div>
+
+            <form>
+                <label>
 
 
-            <h4 class="margem">Data do Atendimento</h4>
-            <input class="input" type="date" name="data_atendimento" id="data_atendimento"
-                placeholder="Data de Atendimento">
+                    <div id="subform">
+                        <select name="periodo" id="periodo">
+                            <option value="">Selecione...</option>
+                            <option value="semanal">Semanal</option>
+                            <option value="quinzenal">Quinzenal</option>
+                            <option value="mensal">Mensal</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                        <br>
+                        <label for="repeticoes">Repetições:</label>
+                        <input type="number" id="repeticoes">
+                        <br><br>
+                        <button onClick="calculadata()">Calcular Data</button>
 
-            <h4 class="margem">Horário da Consulta</h4>
-            <input class="input" type="time" name="horario_consulta" id="horario_consulta"
-                placeholder="Horario da Consulta" step="1800">
+                        <p id="resposta"></p>
+                </label>
+
+            </form>
+            </div>
+            <br>
 
             <input class="input" type="money" name="valor_consulta" id="valor_consulta" placeholder="Valor da Consulta">
 
@@ -48,7 +87,7 @@
                 <h4 class="margem">Status da Consulta</h4>
                 <select id="status_c" class="input" type="text"></select>
             </div>
-            
+
             <input class="input" type="text" name="observacao" id="observacao" placeholder="Observação">
 
             <input class="login-button" type="submit" value="AGENDAR" id="btn_agendar">
@@ -62,12 +101,11 @@
     <header>
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_a">
 
-        <div
-            id="selectedName"
+        <div id="selectedName"
             style="flex: 1 1 0; color: black; font-size: 16px; font-family: Nunito; font-weight: 400; word-wrap: break-word">
             Selecione um especialista
         </div>
-        
+
 
         <select style="padding: 8px; background: white; border-radius: 8px" id="lista">
             <option value="-">Selecione um especialista</option>

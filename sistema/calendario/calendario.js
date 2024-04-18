@@ -377,6 +377,48 @@ const status_consultainp = document.getElementById("status_c")
 const status_pagamentoinp = document.getElementById("status_pagamento")
 const observacaoinp = document.getElementById("observacao")
 
+function calculadata(){
+
+    var repeticoes = parseInt(document.getElementById("repeticoes").value);
+    var tipo = document.getElementById("periodo").value;
+    var periodo = 0;
+    var dataBrasileira = document.getElementById("data_atendimento").value;
+    var dataISO = converterDataFormatoBrasileiroParaISO(dataBrasileira);
+    
+    switch (tipo) {
+      case "semanal":
+        periodo = 7;
+        break;
+      case "quinzenal":
+        periodo = 15;
+        break;
+      case "mensal":
+        periodo = 30;
+        break;
+      case "anual":
+        periodo = 365;
+        break;
+      default:
+        periodo = 0;
+        break;
+    }
+    var texto = "";
+    
+    for (var i = 1; i <= repeticoes; i++) {
+      var data = new Date(dataISO);
+      data.setDate(data.getDate() + i * periodo);
+      texto += data.toLocaleDateString("pt-BR") + "<br/>";
+    }
+    
+    document.getElementById("resposta").innerHTML = texto;
+    
+    }
+
+    document.getElementById('mostrarSubform').addEventListener('change', function() {
+        var subform = document.getElementById('subform');
+        subform.style.display = this.checked ? 'block' : 'none';
+    });
+
 function agendamento(event) {
     event.preventDefault()
 
@@ -445,3 +487,8 @@ function agendamento(event) {
 }
 
 
+
+
+ 
+    
+  

@@ -43,3 +43,4 @@ document.getElementById("ch-side").addEventListener("change",event=>{
        mainSide.classList.add("off") 
     }
   })
+
