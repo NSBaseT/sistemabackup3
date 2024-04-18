@@ -3,7 +3,7 @@ verificaAutenticado()
 
 const tbody = document.querySelector("tbody");
 const type = document.querySelector("#type");
-let items;
+let items = []
 
 function editarItem(index) {
   const url = new URL(window.location.href)
@@ -13,17 +13,17 @@ function editarItem(index) {
 }
 
 function insertItem(item, index) {
-  let nomePaciente = document.getElementById("name").value;
   let tr = document.createElement("tr");
 
   tr.innerHTML = `
-    <td>${name}</td>
+    <td>${item.Nome}</td>
+  </td>
     <td class="columnAction">
-      <button onclick="editarItem()">Editar</button>
+      <button onclick="editarItem(${index})"><i class='bx bx-trash'></i></button>
     </td>
   `;
-  let table_container = document.getElementById("table_container");
-  table_container.appendChild(tr);
+
+  tbody.appendChild(tr);
 }
 
 function loadItens() {
@@ -44,9 +44,3 @@ const getItensBD = async () => {
 
 
 loadItens();
-
-document.getElementById("ch-side").addEventListener("submit", function(event) {
-  event.preventDefault(); // Evita o envio do formulário padrão
-  insertItem(); // Chama a função insertItem para adicionar o item à tabela
-});
-

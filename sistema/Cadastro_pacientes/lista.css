@@ -1,0 +1,16 @@
+.containertabela {
+  overflow:auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+  place-items: center;
+  width: 800px;
+  height: 200px;
+  background: #f8fdfd;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
+  border-radius: 15px;
+  padding: 0px 0px;
+  border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
+  margin: 0;
+}
