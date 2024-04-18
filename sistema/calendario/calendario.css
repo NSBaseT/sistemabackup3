@@ -331,6 +331,20 @@ main {
   transition: all 0.2s ease-in-out;
 }
 
+.calc-button {
+  display: block;
+  width: 15%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 5px;
+  margin: 5px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
 .olcards {
   list-style: none;
   counter-reset: cardCount;
@@ -496,7 +510,15 @@ li::before {
   width: 50%;
   border: none;
   margin-top: 2%;
-  padding: 1%;
+  
+}
+
+.inputdata{
+  border:none;
+  box-shadow: 0px 0px 5px #969595;
+  border-radius: 10%;
+  margin: 2%;
+  width:8%;
 }
 
 .heading {
@@ -617,11 +639,10 @@ dialog {
 }
 
 .campomenor{
-  display:inline;
-  width: 20%;
-  align-items: center;
-  justify-content: center;
-   
+  display: contents;
+  width: 40%;
+  margin: 10%;
+ 
 }
 
 label {

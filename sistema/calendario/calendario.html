@@ -41,14 +41,14 @@
 
             </div>
             <br>
-            <div class="input">
+            <div>
                 <div class="campomenor">
                     <label for="date">Data do Atendimento</label>
-                    <input type="date" name="data_atendimento" id="data_atendimento">
+                    <input class="inputdata" type="date" name="data_atendimento" id="data_atendimento">
                 
                 
                     <label for="date">Horário da Consulta</label>
-                    <input type="time" name="horario_consulta" id="horario_consulta">
+                    <input class="inputdata" type="time" name="horario_consulta" id="horario_consulta">
                     <input type="checkbox" id="mostrarSubform"> Repetir
                 </div>
             </div>
@@ -56,20 +56,20 @@
             <form>
                 <label>
 
-
                     <div id="subform">
-                        <select name="periodo" id="periodo">
+                        <label  for="periodo">Período:</label>
+                        <select style="margin:2%;" name="periodo" id="periodo">
                             <option value="">Selecione...</option>
                             <option value="semanal">Semanal</option>
                             <option value="quinzenal">Quinzenal</option>
                             <option value="mensal">Mensal</option>
                             <option value="anual">Anual</option>
-                        </select>
-                        <br>
+                        </select>                     
+                        
                         <label for="repeticoes">Repetições:</label>
-                        <input type="number" id="repeticoes">
-                        <br><br>
-                        <button onClick="calculadata()">Calcular Data</button>
+                        <input class="inputdata" type="number" id="repeticoes"> 
+                       
+                        <button class="calc-button" onClick="calculadata()">Calcular Data</button>
 
                         <p id="resposta"></p>
                 </label>
