@@ -33,13 +33,13 @@
         <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
 
 
-            <input class="input" type="text" name="name" id="name" placeholder="Nome" ,>
-            <input class="input" type="text" name="phone" id="phone" placeholder="Telefone">
             <div class="margem">
                 <optgroup label="Especialista"></optgroup>
                 <select class="input" type="text" name="Especialista" id="especialista"></select>
-
             </div>
+            <input class="input" type="text" name="name" id="name" placeholder="Nome" onclick="document.getElementById('especialista').value == '' ? alert('preencha o especialista') : 'liberado pra preencher' ">
+            <!-- <select class="input" type="text" name="name" id="name"  placeholder="Nome"></select> -->
+            <input class="input" type="text" name="phone" id="phone" placeholder="Telefone">
             <br>
             <div>
                 <div class="campomenor">
@@ -67,11 +67,10 @@
                         </select>                     
                         
                         <label for="repeticoes">Repetições:</label>
-                        <input class="inputdata" type="number" id="repeticoes"> 
+                        <input class="inputdata" type="number" id="repeticoes">                
                        
-                        <button class="calc-button" onClick="calculadata()">Calcular Data</button>
 
-                        <p id="resposta"></p>
+                       
                 </label>
 
             </form>

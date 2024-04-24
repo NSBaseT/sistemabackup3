@@ -314,6 +314,19 @@ const nomeDoDoutor2 = "Nayara"
 const nomeDoDoutor3 = "Sandra"
 const nomeDoDoutor4 = "Viviane"
 
+// let retornoDoBanco = funcaoQuePegaDoBanco();
+
+// for (let index = 0; index < retornoDoBanco.length; index++) {
+//     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;
+    
+// }
+
+
+// let retornoDoBanco = funcaoQuePegaDoBancoUSUARIO("parametroMedico");
+
+// for (let index = 0; index < retornoDoBanco.length; index++) {
+//     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;    
+// }
 
 espec.innerHTML += `<option>${nomeDoDoutor1}</option>`;
 espec.innerHTML += `<option>${nomeDoDoutor2}</option>`;
@@ -403,15 +416,14 @@ function calculadata(){
         break;
     }
     var texto = "";
+    var arrayData = [];
     
     for (var i = 1; i <= repeticoes; i++) {
       var data = new Date(dataISO);
       data.setDate(data.getDate() + i * periodo);
-      texto += data.toLocaleDateString("pt-BR") + "<br/>";
+      arrayData.push(data);
     }
-    
-    document.getElementById("resposta").innerHTML = texto;
-    
+        return arrayData;
     }
 
     document.getElementById('mostrarSubform').addEventListener('change', function() {
@@ -419,12 +431,47 @@ function calculadata(){
         subform.style.display = this.checked ? 'block' : 'none';
     });
 
+function converterDataFormatoBrasileiroParaISO(data) {
+    var partes = data.split("/");
+    return partes[2] + "-" + partes[1] + "-" + partes[0];
+}
+      
 function agendamento(event) {
     event.preventDefault()
 
     const {agendamentoId} = document.getElementById("formagendamento").dataset
 
     if (agendamentoId === '0') {
+
+        let datasFuturasProgramadas = calculadata();
+
+        if(datasFuturasProgramadas.length > 0){
+
+            for (let index = 0; index < datasFuturasProgramadas.length; index++) {
+                fetch("/agendamento", {
+                    method: "POST", body: JSON.stringify({
+        
+                        Nome: nameinp.value, // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
+                        Telefone: phoneinp.value,
+                        Especialista: especialistainp.value,
+                        Data_do_Atendimento: datasFuturasProgramadas[index],
+                        Horario_da_consulta: horario_consultainp.value,
+                        Valor_da_Consulta: valor_consultainpinp.value,
+                        Status_da_Consulta: status_consultainp.value,
+                        Status_do_pagamento: status_pagamentoinp.value,
+                        observacao: observacaoinp.value,
+        
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(response => response.json()).then(data => {
+                    console.log("Agendamento Futuro Agendado com sucesso!")
+                }).catch(() => alert("Erro ao Agendar"))
+            }
+
+            
+        }
 
         fetch("/agendamento", {
             method: "POST", body: JSON.stringify({
@@ -485,10 +532,3 @@ function agendamento(event) {
       })
     }
 }
-
-
-
-
- 
-    
-  

@@ -1,8 +1,18 @@
 verificaAutenticado()
-document.getElementById("btn_voltar_c").addEventListener("click", () => {
-    window.location.href = '../Menu/menu.html'
-})
 
+document.getElementById("ch-side").addEventListener("change",event=>{
+    const mainSide=document.getElementById("main-side")
+    if(event.target.checked){
+       mainSide.classList.remove("off") 
+    }
+    else{
+       mainSide.classList.add("off") 
+    }
+  })
+
+  document.getElementById("btn_voltar_c").addEventListener("click", () => {
+    window.location.href = '../Menu/menu.html';
+});
 
 const nameinp = document.getElementById("name")
 const phoneinp = document.getElementById("phone")
@@ -34,13 +44,5 @@ function cadastrar_paciente(event) {
     }).catch(() => alert("Erro ao cadastrar"))
 }
 
-document.getElementById("ch-side").addEventListener("change",event=>{
-    const mainSide=document.getElementById("main-side")
-    if(event.target.checked){
-       mainSide.classList.remove("off") 
-    }
-    else{
-       mainSide.classList.add("off") 
-    }
-  })
+
 
