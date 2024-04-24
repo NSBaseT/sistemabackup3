@@ -93,9 +93,30 @@
             <input class="login-button" type="button" value="FECHAR" id="btn-close">
 
         </form>
-
-
     </dialog>
+
+        
+                <!-- Lista espera -->
+
+                <dialog id="mod-espera" class="esperaSt"></dialog>
+
+                <form onsubmit="espera(event)" id="formespera" class="form">
+
+                     <div><b>Lista de Espera</b></div>
+
+
+                    <input class="input" name="name" id="name" placeholder="Nome"></input>
+                    <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
+                    <input class="input" name="convenio" id="convenio" placeholder="Convênio"></input>
+                    <input class="input" type="text" name="observacao" id="observacao" placeholder="Observação">
+
+                    <optgroup label="Especialista"></optgroup>
+                    <select class="input" type="text" name="Especialista" id="especialista"></select>
+
+                    <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">
+
+                </form>
+
 
     <header>
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_a">
@@ -110,7 +131,7 @@
             <option value="-">Selecione um especialista</option>
         </select>
 
-        <button
+        <button id="espera"
             style="padding: 8px; background: #0D87E9; border-radius: 8px; justify-content: center; align-items: center; display: flex">
             <i class="ph ph-clock" style="color: white; height: full; width: full;"></i>
         </button>
@@ -130,7 +151,7 @@
                 <span class="month-picker" id="month-picker"> May </span>
                 <div class="year-picker" id="year-picker">
                     <span class="year-change" id="pre-year">
-                        <pre><</pre>
+                        <pre></pre>
                     </span>
                     <span id="year">2024 </span>
                     <span class="year-change" id="next-year">

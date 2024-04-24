@@ -513,12 +513,23 @@ li::before {
   
 }
 
+.esperaSt {
+  overflow: auto;
+  left: 35%;
+  text-align: center;
+  border-radius: 20px;
+  width: 50%;
+  border: none;
+  margin-top: 2%;
+  
+}
+
 .inputdata{
   border:none;
   box-shadow: 0px 0px 5px #969595;
   border-radius: 10%;
   margin: 2%;
-  width:8%;
+  width:15%;
 }
 
 .heading {
@@ -647,6 +658,7 @@ dialog {
 
 label {
    font-weight: bold;
+   font-size: small;
 }
 
 

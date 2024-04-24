@@ -3,6 +3,7 @@
 verificaAutenticado()
 
 const modAgen = document.getElementById('mod-agen')
+const modEspera = document.getElementById('mod-espera')
 
 const isLeapYear = (year) => {
     return (
@@ -314,6 +315,12 @@ const nomeDoDoutor2 = "Nayara"
 const nomeDoDoutor3 = "Sandra"
 const nomeDoDoutor4 = "Viviane"
 
+
+espec.innerHTML += `<option>${nomeDoDoutor1}</option>`;
+espec.innerHTML += `<option>${nomeDoDoutor2}</option>`;
+espec.innerHTML += `<option>${nomeDoDoutor3}</option>`;
+espec.innerHTML += `<option>${nomeDoDoutor4}</option>`;
+
 // let retornoDoBanco = funcaoQuePegaDoBanco();
 
 // for (let index = 0; index < retornoDoBanco.length; index++) {
@@ -328,10 +335,6 @@ const nomeDoDoutor4 = "Viviane"
 //     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;    
 // }
 
-espec.innerHTML += `<option>${nomeDoDoutor1}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor2}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor3}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor4}</option>`;
 
 
 const statusp = document.getElementById("status_pagamento");
@@ -376,7 +379,7 @@ document.getElementById('btn-close').addEventListener('click', () => {
 })
 
 document.getElementById("btn_voltar_a").addEventListener("click", () => {
-    window.location.href = '../Menu/menu.html'
+    window.location.href = '../Menu/menu.html' 
 })
 
 
@@ -530,5 +533,60 @@ function agendamento(event) {
       }).catch(() => {
         alert("Erro ao atualizar")
       })
+
+
+
+
+      
+
+// Lista de espera
+
+const nameinp = document.getElementById("name")
+const phoneinp = document.getElementById("phone")
+const convenioinp = document.getElementById("convenio")
+const especialistainp = document.getElementById("especialista")
+const observacaoinp = document.getElementById("observacao")
+
+
+function cadastro_espera(event) {
+    event.preventDefault()
+    fetch("/cadastro_paciente", {
+        method: "POST",
+        body: JSON.stringify({
+            Nome: nameinp.value,
+            Telefone: phoneinp.value,
+            Convenio: convenioinp.value,
+            Especialista: especialistainp.value,
+            Observacao: observacaoinp.value,
+       
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(response => response.json()).then(data => {
+        alert("Paciente adicionado a lista de espera com sucesso!")
+        window.location.reload()
+    }).catch(() => alert("Erro ao adicionar"))
+}
+
+
+    }
+
+
+    function  espera(event) {
+        event.preventDefault()
+    
+        const {esperaId} = document.getElementById("formespera").dataset
+    contentEl.onclick = () => {
+        modEspera.showModal()
+
+    }
+        nameinp.value = arg.Nome
+        phoneinp.value = arg.Telefone
+        convenioinp.Value = arg.Convenio
+        especialistainp.value = arg.Especialista
+        observacaoinp.value = arg.observacao
+
+        document.getElementById("formespera").esperaId = arg.id
     }
 }

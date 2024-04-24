@@ -145,6 +145,16 @@ app.post("/cadastro_user", async (req, res) => {
 
 })
 
+app.post("/cadastro_espera", async (req, res) => {
+    await prisma.cadastro_espera.create({
+        data: req.body
+    })
+
+    res.status(201).json({
+        message: "ok"
+    })
+})
+
 const gerarNumero4Dig = () => Math.floor(Math.random() * 9000) + 1000
 
 app.post("/gerar-recovery", async (req, res) => {

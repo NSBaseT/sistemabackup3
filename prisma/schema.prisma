@@ -61,3 +61,13 @@ model Fluxo_de_caixa {
   Valor     String
   Tipo      String
 }
+
+model Espera {
+  id                  String @id @default(uuid())
+  Nome                String
+  Telefone            String
+  Convenio            String
+  Especialista        String
+  Observacao          String
+
+}
