@@ -8,6 +8,7 @@ body {
   /* altura total da viewport */
   margin: 0;
   /* remova margens padrão */
+ 
 }
 
 .container {
@@ -20,6 +21,7 @@ body {
   border: 5px solid rgb(255, 255, 255);
   box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
   margin: 15px;
+
 }
 
 .heading {
@@ -130,7 +132,59 @@ body {
 /* css para celular */
 @media (max-width: 480px) {
   body {
-    color: #299b8c;
+    color: #299b8c;   
+  }
+  
+* {
+  margin: 0;
+  padding: 0;
+  width: 105%;
+  margin-right: 0;
+  margin-left: 0;
+  
+}
+  .switch-container {
+  
+    position: relative;
+    top: 0;
+    left: 150%;
+    padding: 9px;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    height: 580px;
+  }
+  
+  .switch-container main {
+  
+    border-radius: 15px;
+    position: absolute;
+    padding-top: 32px;
+    width: 20%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  }
+  
+  .switch-container main.off {
+    display: none;
+  }
+  
+  
+  .switch {
+    font-size: 20%;
+    position: relative;
+    display: inline-block;
+    width: 4em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
 }
 
@@ -180,6 +234,7 @@ body {
 }
 
 .switch-container {
+  
   position: absolute;
   top: 0;
   left: 0;
