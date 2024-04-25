@@ -284,8 +284,6 @@ input:checked+.slider:before {
  border: 0;
 }
 
-
-
 .escrita{
    font-size: 65%;
    margin:15%;
@@ -302,7 +300,8 @@ input:checked+.slider:before {
 
 .contato{
   font-size: 70%;
-  margin-left: 15%;
+  margin-left: 10%;
+  text-align: center;
   
 }
 
