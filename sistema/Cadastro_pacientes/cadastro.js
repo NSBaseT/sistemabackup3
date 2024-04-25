@@ -46,3 +46,31 @@ function cadastrar_paciente(event) {
 
 
 
+
+
+
+(async () => {
+    const token = localStorage.getItem(CHAVE)
+
+    const response = await fetch('/verify', {
+        body: JSON.stringify({ token }),
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const data = await response.json()
+
+    const responsePacientes = await fetch('/pacientes')
+    const todosPacientes = await responsePacientes.json()
+
+    if (data.Secretaria) {
+        // dasodkaskda
+    }
+
+    if (data.Profissional) {
+       
+    }
+
+})().catch(console.error)

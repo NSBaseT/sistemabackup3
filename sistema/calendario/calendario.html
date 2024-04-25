@@ -37,7 +37,7 @@
                 <optgroup label="Especialista"></optgroup>
                 <select class="input" type="text" name="Especialista" id="especialista"></select>
             </div>
-            <input class="input" type="text" name="name" id="name" placeholder="Nome" onclick="document.getElementById('especialista').value == '' ? alert('preencha o especialista') : 'liberado pra preencher' ">
+            <input class="input" type="text" name="name" id="age_name" placeholder="Nome" onclick="document.getElementById('especialista').value == '' ? alert('preencha o especialista') : 'liberado pra preencher' ">
             <!-- <select class="input" type="text" name="name" id="name"  placeholder="Nome"></select> -->
             <input class="input" type="text" name="phone" id="phone" placeholder="Telefone">
             <br>
@@ -97,25 +97,51 @@
 
         
                 <!-- Lista espera -->
-
-                <dialog id="mod-espera" class="esperaSt"></dialog>
+ <option>
+                            AAAAA
+                        </option>
+                <dialog id="mod-espera" class="esperaSt">
 
                 <form onsubmit="espera(event)" id="formespera" class="form">
 
                      <div><b>Lista de Espera</b></div>
 
 
-                    <input class="input" name="name" id="name" placeholder="Nome"></input>
+                    <input class="input" name="name" id="esp-name" placeholder="Nome"></input>
                     <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
                     <input class="input" name="convenio" id="convenio" placeholder="Convênio"></input>
                     <input class="input" type="text" name="observacao" id="observacao" placeholder="Observação">
 
                     <optgroup label="Especialista"></optgroup>
-                    <select class="input" type="text" name="Especialista" id="especialista"></select>
+                    <select class="input" type="text" name="Especialista" id="esp-especialista">
+                        <option>
+                            AAAAA
+                        </option>
+                    </select>
 
                     <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">
 
                 </form>
+
+
+                <div class="divTable">
+                    <table>
+                      <thead>
+                        <tr>
+                         
+                          <th class="columnAmount">Nome</th>
+                          <th class="columnType">Telefone</th>
+                          <th class="columnAction">Convênio</th>
+                          <th class="columnAction">Especialista</th>
+                          <th class="columnAction">Observação</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+          
+                    </table>
+                  </div>
+            </dialog>
 
 
     <header>
@@ -132,6 +158,7 @@
         </select>
 
         <button id="espera"
+        onclick="AbrirEspera()"
             style="padding: 8px; background: #0D87E9; border-radius: 8px; justify-content: center; align-items: center; display: flex">
             <i class="ph ph-clock" style="color: white; height: full; width: full;"></i>
         </button>

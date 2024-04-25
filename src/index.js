@@ -262,6 +262,27 @@ app.delete("/Fluxo_de_caixa", async (req, res) => {
 
 })
 
+
+app.get("/Lista_espera", async (req, res) => {
+    const lista_espera = await prisma.Espera.findMany()
+ 
+ 
+     res.json(lista_espera)
+ 
+ })
+
+ app.post("/Lista_espera", async (req, res) => {
+    await prisma.Espera.create({
+        data: req.body,
+    })
+
+
+    res.status(201).json({
+        message: "ok"
+    })
+
+})
+
 app.listen(porta, () => {
     console.log(`servidor rodando na porta ${porta}`)
 })

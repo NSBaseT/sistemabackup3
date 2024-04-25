@@ -9,6 +9,9 @@ const emailinp = document.getElementById("email")
 const userinp = document.getElementById("user")
 const senhainp = document.getElementById("senha")
 const c_senhainp = document.getElementById("c_senha")
+const isSecretaria = document.getElementById("secretaria")
+const isProfissional = document.getElementById("Profissional")
+
 
 function cadastro_user(event) {
     event.preventDefault()
@@ -26,7 +29,8 @@ if (senhainp.value!==c_senhainp.value){
             Email: emailinp.value,
             Usuario: userinp.value,
             Senha: senhainp.value,
-            
+            Secretaria: isSecretaria.checked,
+            Profissional: isProfissional.checked,
         }),
         headers: {
             "Content-Type": "application/json"

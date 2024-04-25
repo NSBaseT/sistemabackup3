@@ -38,7 +38,7 @@ function loadItens() {
 
 const getItensBD = async () => {
   const response = await fetch('/pacientes')
-  items = await response.json()
+ const items = await response.json()
 }
 
 

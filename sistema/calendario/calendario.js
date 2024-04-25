@@ -226,8 +226,8 @@ document.querySelector('#next-year').onclick = () => {
 };
 
 let currentDate = new Date();
-let currentMonth = {value: currentDate.getMonth()};
-let currentYear = {value: currentDate.getFullYear()};
+let currentMonth = { value: currentDate.getMonth() };
+let currentYear = { value: currentDate.getFullYear() };
 generateCalendar(currentMonth.value, currentYear.value);
 
 const todayShowTime = document.querySelector('.time-formate');
@@ -270,7 +270,7 @@ const list = document.getElementById("lista");
     const token = localStorage.getItem(CHAVE)
 
     const response = await fetch('/verify', {
-        body: JSON.stringify({token}),
+        body: JSON.stringify({ token }),
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -284,7 +284,7 @@ const list = document.getElementById("lista");
     const consultores = []
 
     // VALIDACAO DE SECRETARIA MELHOR DPS
-    if (data.Usuario === 'Sandra') {
+    if (data.Secretaria) {
         consultores.push(
             "Nayara",
             "Sandra",
@@ -325,7 +325,7 @@ espec.innerHTML += `<option>${nomeDoDoutor4}</option>`;
 
 // for (let index = 0; index < retornoDoBanco.length; index++) {
 //     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;
-    
+
 // }
 
 
@@ -379,11 +379,11 @@ document.getElementById('btn-close').addEventListener('click', () => {
 })
 
 document.getElementById("btn_voltar_a").addEventListener("click", () => {
-    window.location.href = '../Menu/menu.html' 
+    window.location.href = '../Menu/menu.html'
 })
 
 
-const nameinp = document.getElementById("name") //O getElementById tem que ser igual o id
+const nameinp = document.getElementById("age_name") //O getElementById tem que ser igual o id
 const phoneinp = document.getElementById("phone")
 const especialistainp = document.getElementById("especialista")
 const data_atendimentoinp = document.getElementById("data_atendimento")
@@ -393,67 +393,68 @@ const status_consultainp = document.getElementById("status_c")
 const status_pagamentoinp = document.getElementById("status_pagamento")
 const observacaoinp = document.getElementById("observacao")
 
-function calculadata(){
+function calculadata() {
 
     var repeticoes = parseInt(document.getElementById("repeticoes").value);
     var tipo = document.getElementById("periodo").value;
     var periodo = 0;
     var dataBrasileira = document.getElementById("data_atendimento").value;
-    var dataISO = converterDataFormatoBrasileiroParaISO(dataBrasileira);
-    
+
+
     switch (tipo) {
-      case "semanal":
-        periodo = 7;
-        break;
-      case "quinzenal":
-        periodo = 15;
-        break;
-      case "mensal":
-        periodo = 30;
-        break;
-      case "anual":
-        periodo = 365;
-        break;
-      default:
-        periodo = 0;
-        break;
+        case "semanal":
+            periodo = 7;
+            break;
+        case "quinzenal":
+            periodo = 15;
+            break;
+        case "mensal":
+            periodo = 30;
+            break;
+        case "anual":
+            periodo = 365;
+            break;
+        default:
+            periodo = 0;
+            break;
     }
     var texto = "";
     var arrayData = [];
-    
-    for (var i = 1; i <= repeticoes; i++) {
-      var data = new Date(dataISO);
-      data.setDate(data.getDate() + i * periodo);
-      arrayData.push(data);
-    }
-        return arrayData;
-    }
 
-    document.getElementById('mostrarSubform').addEventListener('change', function() {
-        var subform = document.getElementById('subform');
-        subform.style.display = this.checked ? 'block' : 'none';
-    });
+    for (var i = 1; i <= repeticoes; i++) {
+        var data = new Date(dataBrasileira);
+        data.setDate(data.getDate() + i * periodo);
+        data.setHours()
+        arrayData.push(data);
+    }
+    return arrayData;
+}
+
+document.getElementById('mostrarSubform').addEventListener('change', function () {
+    var subform = document.getElementById('subform');
+    subform.style.display = this.checked ? 'block' : 'none';
+});
 
 function converterDataFormatoBrasileiroParaISO(data) {
     var partes = data.split("/");
     return partes[2] + "-" + partes[1] + "-" + partes[0];
 }
-      
+
 function agendamento(event) {
     event.preventDefault()
 
-    const {agendamentoId} = document.getElementById("formagendamento").dataset
+    const { agendamentoId } = document.getElementById("formagendamento").dataset
 
     if (agendamentoId === '0') {
 
         let datasFuturasProgramadas = calculadata();
 
-        if(datasFuturasProgramadas.length > 0){
+        if (datasFuturasProgramadas.length > 0) {
 
             for (let index = 0; index < datasFuturasProgramadas.length; index++) {
                 fetch("/agendamento", {
                     method: "POST", body: JSON.stringify({
-        
+
                         Nome: nameinp.value, // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
                         Telefone: phoneinp.value,
                         Especialista: especialistainp.value,
@@ -463,7 +464,7 @@ function agendamento(event) {
                         Status_da_Consulta: status_consultainp.value,
                         Status_do_pagamento: status_pagamentoinp.value,
                         observacao: observacaoinp.value,
-        
+
                     }),
                     headers: {
                         "Content-Type": "application/json"
@@ -473,7 +474,7 @@ function agendamento(event) {
                 }).catch(() => alert("Erro ao Agendar"))
             }
 
-            
+
         }
 
         fetch("/agendamento", {
@@ -510,83 +511,125 @@ function agendamento(event) {
         }).catch(() => alert("Erro ao Agendar"))
     } else {
 
-      fetch("/agendamento", {
-        method: "PUT", body: JSON.stringify({
-          id: agendamentoId,
-          Nome: nameinp.value,
-          Telefone: phoneinp.value,
-          Especialista: especialistainp.value,
-          Data_do_Atendimento: data_atendimentoinp.value,
-          Horario_da_consulta: horario_consultainp.value,
-          Valor_da_Consulta: valor_consultainpinp.value,
-          Status_da_Consulta: status_consultainp.value,
-          Status_do_pagamento: status_pagamentoinp.value,
-          observacao: observacaoinp.value,
+        fetch("/agendamento", {
+            method: "PUT", body: JSON.stringify({
+                id: agendamentoId,
+                Nome: nameinp.value,
+                Telefone: phoneinp.value,
+                Especialista: especialistainp.value,
+                Data_do_Atendimento: data_atendimentoinp.value,
+                Horario_da_consulta: horario_consultainp.value,
+                Valor_da_Consulta: valor_consultainpinp.value,
+                Status_da_Consulta: status_consultainp.value,
+                Status_do_pagamento: status_pagamentoinp.value,
+                observacao: observacaoinp.value,
 
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(response => response.json()).then(data => {
-        alert("Paciente Atualizado com sucesso!")
-        carregarLista(true).catch(console.error)
-      }).catch(() => {
-        alert("Erro ao atualizar")
-      })
-
-
-
-
-      
-
-// Lista de espera
-
-const nameinp = document.getElementById("name")
-const phoneinp = document.getElementById("phone")
-const convenioinp = document.getElementById("convenio")
-const especialistainp = document.getElementById("especialista")
-const observacaoinp = document.getElementById("observacao")
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).then(data => {
+            alert("Paciente Atualizado com sucesso!")
+            carregarLista(true).catch(console.error)
+        }).catch(() => {
+            alert("Erro ao atualizar")
+        })
+    }
 
 
-function cadastro_espera(event) {
+    function cadastro_espera(event) {
+        event.preventDefault()
+        fetch("/cadastro_paciente", {
+            method: "POST",
+            body: JSON.stringify({
+                Nome: nameinp.value,
+                Telefone: phoneinp.value,
+                Convenio: convenioinp.value,
+                Especialista: especialistainp.value,
+                Observacao: observacaoinp.value,
+
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).then(data => {
+            alert("Paciente adicionado a lista de espera com sucesso!")
+            window.location.reload()
+        }).catch(() => alert("Erro ao adicionar"))
+    }
+
+
+}
+
+
+function AbrirEspera() {
+    modEspera.showModal()
+}
+
+function espera(event) {
     event.preventDefault()
-    fetch("/cadastro_paciente", {
-        method: "POST",
+
+
+
+    const nameinp = document.getElementById("esp-name")
+    const phoneinp = document.getElementById("phone")
+    const convenioinp = document.getElementById("convenio")
+    const especialistainp = document.getElementById("esp-especialista")
+    const observacaoinp = document.getElementById("observacao")
+
+   
+
+    fetch('/Lista_espera', {
+        method: 'POST',
         body: JSON.stringify({
             Nome: nameinp.value,
             Telefone: phoneinp.value,
             Convenio: convenioinp.value,
             Especialista: especialistainp.value,
             Observacao: observacaoinp.value,
-       
         }),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(response => response.json()).then(data => {
-        alert("Paciente adicionado a lista de espera com sucesso!")
-        window.location.reload()
-    }).catch(() => alert("Erro ao adicionar"))
+    }).then(() => {
+        loadItens()
+    })
+
 }
 
-
-    }
-
-
-    function  espera(event) {
-        event.preventDefault()
-    
-        const {esperaId} = document.getElementById("formespera").dataset
-    contentEl.onclick = () => {
-        modEspera.showModal()
-
-    }
-        nameinp.value = arg.Nome
-        phoneinp.value = arg.Telefone
-        convenioinp.Value = arg.Convenio
-        especialistainp.value = arg.Especialista
-        observacaoinp.value = arg.observacao
-
-        document.getElementById("formespera").esperaId = arg.id
-    }
+// loadintens espera
+const getItensBD = async () => {
+    const response = await fetch('/Lista_espera')
+    items = await response.json()
 }
+
+function insertItem(item, index) {
+    let tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item.Nome}</td>
+      <td>${item.Telefone}</td>
+      <td>${item.Convenio}</td>
+      <td>${item.Observacao}</td>
+      <td>${item.Especialista}</td>
+      <td class="columnAction">
+        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+}
+
+const tbody = document.querySelector("tbody");
+
+function loadItens() {
+    getItensBD().then(() => {
+        tbody.innerHTML = "";
+        items.forEach((item, index) => {
+            insertItem(item, index);
+        });
+
+    }).catch(console.error)
+}
+
+loadItens()
