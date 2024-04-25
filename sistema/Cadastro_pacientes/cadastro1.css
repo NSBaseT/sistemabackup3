@@ -144,8 +144,8 @@ body {
   display: none;
 }
 
-.h4{
-margin-bottom:50%;
+h4{
+margin-top: 20%;
 }
 
 .escrita {
@@ -294,13 +294,9 @@ input:checked+.slider:before {
   margin:0;
 }
 
-.h4{
-  margin-bottom:50%;
-  }
-
 .contato{
   font-size: 70%;
-  margin-left: 10%;
+  margin-left: 8%;
   text-align: center;
   
 }
