@@ -19,92 +19,86 @@
 </head>
 
 <body>
-        <div class="switch-container">
-            <main class="off" id="main-side">
-    <div class="escrita">
-                <h4 style="margin-top: 10%;">
-                    <a  href="../cadastro_user/cadastro_user.html">
+    <div class="switch-container">
+        <main class="off" id="main-side">
+            <div class="escrita">
+                <h4 style="margin-top: 20%;">
+                    <a href="../cadastro_user/cadastro_user.html">
                         <i class="bi bi-person-lock"></i> Cadastro de Usuário</a>
                 </h4>
 
-                <h4 style="margin-top: 10%;">
+                <h4 style="margin-top: 20%;">
                     <a href="../cadastro_convenio/cadastro_convenio.html">
                         <i class="bi bi-journals"></i> Cadastro de Convênio</a>
                 </h4>
 
-                <h4 style="margin-top: 10%;">
+                <h4 style="margin-top: 20%;">
                     <a href="../calendario/calendario.html">
                         <i class="bi bi-calendar2-check"></i> Agendamento</a>
                 </h4>
 
-                <h4 style="margin-top: 10%;">
+                <h4 style="margin-top: 20%;">
                     <a href="../Fluxo_de_caixa/fluxo.html">
                         <i class="bi bi-cash-coin"></i> Fluxo de Caixa</a>
                 </h4>
             </div>
 
-                <div style="margin-top: 50%;">
-                    <div class="contato"> Contato </div>
-                </div>
+            <div style="margin-top: 80%;">
+                <div class="contato"> Contato </div>
+            </div>
 
-                <div>
-                    <a class="contato" href="https://wa.me/message/6JNNR37HJXYQM1">
-                        <i class="bi bi-whatsapp"></i><span>
-                        </span>(19) 98149-4345</a>
-                </div>
+            <div>
+                <a class="contato" href="https://wa.me/message/6JNNR37HJXYQM1">
+                    <i class="bi bi-whatsapp"></i><span>
+                    </span>(19) 98149-4345</a>
+            </div>
 
-                <div>
-                    <a class="contato" href="https://www.instagram.com/ns_basetech?igsh=eXZ6aDl4dWt5NmRj">
-                        <i class="bi bi-instagram"></i><span style="margin-left: 5px;"></span>@ns_basetech </a>
-                </div>
+            <div>
+                <a class="contato" href="https://www.instagram.com/ns_basetech?igsh=eXZ6aDl4dWt5NmRj">
+                    <i class="bi bi-instagram"></i><span style="margin-left: 5px;"></span>@ns_basetech </a>
+            </div>
 
 
-            </main>
-            <label class="switch">
-                <input type="checkbox" id="ch-side">
-                <span class="slider"></span>
-            </label>
-        </div>
+        </main>
+        <label class="switch">
+            <input type="checkbox" id="ch-side">
+            <span class="slider"></span>
+        </label>
+    </div>
     <div class="container">
 
         <div class="heading">Cadastro de Pacientes</div>
         <br>
-        <center>
-            <div class="NS"><b>NS BaseTech</b></div>
-            <div class="hr-customizado"></div>
-        </center>
-        
-        <form onsubmit="cadastrar_paciente(event)" class="form">
-            <div>
-                <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
-            </div>
 
+        <div class="NS"><b>NS BaseTech</b></div>
+        <div class="hr-customizado"></div>
+
+
+        <form onsubmit="cadastrar_paciente(event)" class="form">
+            <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
 
             <select style="padding: 8px; background: white; border-radius: 8px" id="lista">
                 <option value="-">Selecione um especialista</option>
             </select>
 
-
             <input class="input" name="name" id="name" placeholder="Nome"></input>
-            <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
+            <input class="input" name="phone" id="phone" placeholder="Telefone">
             <input class="input" name="email" id="email" placeholder="E-mail"></input>
-
-
-            <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
-                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></input>
-            <input class="input" name="address" id="address" placeholder="Endereço"></input>
             <input class="input" type="NUMBER" name="number" id="number" placeholder="Numero"></input>
             <input class="input" name="cep" id="cep" placeholder="CEP"></input>
+            <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
+                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+            </input>
+            <input class="input" name="address" id="address" placeholder="Endereço"></input>
 
             <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
 
             <div>
+                <a href="../Cadastro_pacientes/lista_pacientes.html"></a>
                 <button class="login-button">
-                    <a href="../Cadastro_pacientes/lista_pacientes.html">
-                        <i class="bi bi-person-lines-fill"></i> LISTA DE PACIENTES
-                    </a>
-
+                    <i class="bi bi-person-lines-fill"></i> LISTA DE PACIENTES
                 </button>
+                </a>
             </div>
         </form>
 
@@ -112,11 +106,12 @@
     </div>
 
 
+
     <script src="../global/auth.js"></script>
     <script type="text/javascript" src="cadastro.js"></script>
     <script type="text/javascript" src="lista.js"></script>
 
-
 </body>
+
 
 </html>
