@@ -436,9 +436,9 @@ document.getElementById('mostrarSubform').addEventListener('change', function ()
 });
 
 function converterDataFormatoBrasileiroParaISO(data) {
-    var partes = data.split("/");
-    return partes[2] + "-" + partes[1] + "-" + partes[0];
-}
+   var partes = data.split("/");
+   return partes[2] + "-" + partes[1] + "-" + partes[0];
+ }
 
 function agendamento(event) {
     event.preventDefault()
