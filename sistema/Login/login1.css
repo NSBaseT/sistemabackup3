@@ -21,6 +21,11 @@ body {
   opacity: 0.5; /* Defina o nível de transparência (0-1) */
 }
 
+.NS{
+  text-align: center;
+  font-size: medium;
+}
+
 .container {
   z-index: 1;
   position: absolute;
@@ -180,8 +185,39 @@ body {
 }
 
 
-@media (max-width: 480px) {
-  body {
-    color: #299b8c;
+@media screen and (max-width:1312px){
+  .background-image{
+    z-index: -1;
+ background-size: 50%;
   }
+
+
+.container{
+  max-width: 40%;
+  max-height: 59%;
+  flex-direction: column;
+  width: 100%;
+  height: 85%;
+  z-index: 1;
+  
+}
+
+.heading{
+  margin-top:5%;
+  font-size:20px;
+}
+.hr-customizado{
+  font-size:11px;
+}
+.NS{
+  font-size:11px;
+}
+.form .voltar-button{
+  width: 30%;
+}
+
+.form .login-button{
+    width: 30%;
+    font-size: 65%;
+  }  
 }
