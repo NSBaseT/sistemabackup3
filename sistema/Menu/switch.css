@@ -173,11 +173,11 @@
 }
 
 .button2 {
-    left: 59%;
+    left: 59.35%;
 }
 
 .button3 {
-    left: 59%;
+    left: 58.5%;
 }
 
 
@@ -196,23 +196,23 @@
 }
 
 .backdrop {
-    top: 33%;
+    top: 34%;
     left: 55%;
 }
 
 .backdrop1 {
-    top: 56%;
+    top: 58%;
     left: 55%;
 }
 
 .backdrop2 {
-    top: 33%;
+    top: 34%;
     left: 70%;
 }
 
 .backdrop3 {
-    top: 56%;
-    left: 70%;
+    top: 58%;
+    left: 69.58%;
 }
 
 .button:hover+.backdrop,
