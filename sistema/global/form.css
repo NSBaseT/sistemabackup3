@@ -165,9 +165,13 @@ body {
   }
   
 
-  @media (max-width: px){
-    body {
-        color: #299b8c;
-      }
+  @media (max-width: 1312px){
+    .container {
+      width: 90%;
+      height: 60%;
     }
+    .logo{
+      
+    }
+  }
  
