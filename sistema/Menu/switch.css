@@ -141,8 +141,8 @@ input:checked+.slider:before {
 .button3 {
     z-index: 2;
     position: relative;
-    margin-top: 5%;
-    left: 50%;
+    margin-top: 4%;
+    left: 55%;
     width: 150px;
     height: 100px;
     border-radius: 15px;
@@ -160,15 +160,15 @@ input:checked+.slider:before {
 }
 
 .button1 {
-    left: 50%;
+    left: 55%;
 }
 
 .button2 {
-    left: 56.5%;
+    left: 59%;
 }
 
 .button3 {
-    left: 56.5%;
+    left: 59%;
 }
 
 
