@@ -1,183 +1,176 @@
 /* The switch - the box around the slider */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  
-  *::-webkit-scrollbar {
-    display: none;
-  }
-  
-  h4{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+h4 {
   margin-top: 20%;
-  }
-  
-  .escrita {
-    margin-top: 10%;
-    display: block;
-    font-size: 13.5px;
-    width: 70%;
-    font-weight: normal;
-    color: white;
-    padding-block: 5px;
-    margin: 15%;
-    border-radius: 20px;
-    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
-    color: white;
-    text-transform: uppercase;
-  
-  }
-  
-  .contato {
-  
-    font-size: 12.5px;
-    width: 70%;
-    font-weight: normal;
-    color: white;
-    padding-block: 5px;
-    margin-left: 15%;
-    border-radius: 20px;
-    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    
-  }
-  
-  .switch-container {
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 9px;
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    height: 500px;
-    margin: 0;
-    max-width: 30%;
-    width: 15%;
-  }
-  
-  .switch-container main {
-  
-    border-radius: 15px;
-    position: absolute;
-    padding-top: 32px;
-    width: 100%;
-    height: 100%;
-    color: white;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-  }
-  
-  .switch-container main.off {
-    display: none;
-  }
-  
-  
-  .switch {
-    font-size: 1rem;
-    position: relative;
-    display: inline-block;
-    width: 4em;
-    height: 2em;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  a {
-    text-decoration: none;
-    margin: 0;
-    color: inherit;
-  }
-  
-  
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background-color: #eee;
-    transition: 0.4s;
-    border-radius: 0.5em;
-    box-shadow: 0 0.2em #dfd9d9;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.5em;
-    width: 1.4em;
-    border-radius: 0.3em;
-    left: 0.3em;
-    bottom: 0.7em;
-    background-color: lightsalmon;
-    transition: 0.4s;
-    box-shadow: 0 0.4em #bcb4b4;
-  }
-  
-  .slider:hover::before {
-    box-shadow: 0 0.2em #bcb4b4;
-    bottom: 0.5em;
-  }
-  
-  input:checked+.slider:before {
-    transform: translateX(2em);
-    background: lightgreen;
-  }
+}
+
+.escrita {
+  margin-top: 10%;
+  display: block;
+  font-size: 13.5px;
+  width: 70%;
+  font-weight: normal;
+  color: white;
+  padding-block: 5px;
+  margin: 15%;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  text-transform: uppercase;
+
+}
+
+.contato {
+
+  font-size: 12.5px;
+  width: 70%;
+  font-weight: normal;
+  color: white;
+  padding-block: 5px;
+  margin-left: 15%;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+
+}
+
+.switch-container {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 9px;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  margin: 0;
+  max-width: 30%;
+  width: 15%;
+}
+
+.switch-container main {
+
+  border-radius: 15px;
+  position: absolute;
+  padding-top: 32px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+}
+
+.switch-container main.off {
+  display: none;
+}
 
 
-@media (max-width: 480px) {
-    body {
-        color: #299b8c;
-    }
+.switch {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  color: inherit;
+}
+
+
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #eee;
+  transition: 0.4s;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em #dfd9d9;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 1.4em;
+  border-radius: 0.3em;
+  left: 0.3em;
+  bottom: 0.7em;
+  background-color: lightsalmon;
+  transition: 0.4s;
+  box-shadow: 0 0.4em #bcb4b4;
+}
+
+.slider:hover::before {
+  box-shadow: 0 0.2em #bcb4b4;
+  bottom: 0.5em;
+}
+
+input:checked+.slider:before {
+  transform: translateX(2em);
+  background: lightgreen;
 }
 
 .button,
 .button1,
 .button2,
 .button3 {
-    z-index: 2;
-    position: relative;
-    margin-top: 4%;
-    left: 55%;
-    width: 150px;
-    height: 100px;
-    border-radius: 15px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 0px;
-    cursor: pointer;
-    outline: 0px;
-    padding: 0 2px;
-    font-weight: 600;
-    font-size: 13px;
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  z-index: 2;
+  position: relative;
+  margin-top: 4%;
+  left: 55%;
+  width: 150px;
+  height: 100px;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  cursor: pointer;
+  outline: 0px;
+  padding: 0 2px;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .button1 {
-    left: 55%;
+  left: 55%;
 }
 
 .button2 {
-    left: 59.35%;
+  left: 59.35%;
 }
 
 .button3 {
-    left: 58.5%;
+  left: 59.35%;
 }
 
 
@@ -185,43 +178,47 @@
 .backdrop1,
 .backdrop2,
 .backdrop3 {
-    position: absolute;
-    z-index: 1;
-    width: 150px;
-    height: 100px;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    border-radius: 15px;
-    transition: all ease-in-out 0.5s;
-    /* Esta transição deve ser aplicada a todos os backdrops */
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  border-radius: 15px;
+  transition: all ease-in-out 0.5s;
+  /* Esta transição deve ser aplicada a todos os backdrops */
 }
 
+/* cadastro paciente */
 .backdrop {
-    top: 34%;
-    left: 55%;
+  top: 28.5%;
+  left: 53.8%;
 }
 
+/* agendamento */
 .backdrop1 {
-    top: 58%;
-    left: 55%;
+  top: 56.3%;
+  left: 53.8%;
 }
 
+/* cadastro convenio */
 .backdrop2 {
-    top: 34%;
-    left: 70%;
+  top: 28.5%;
+  left: 78%;
 }
 
+/* fluxo de caixa */
 .backdrop3 {
-    top: 58%;
-    left: 69.58%;
+  top: 56.3%;
+  left: 78%;
 }
 
 .button:hover+.backdrop,
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
 .button3:hover+.backdrop3 {
-    top: 80;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    transform: rotate(15deg) translateX(5%) translateY(-20%);
+  top: 80;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transform: rotate(15deg) translateX(5%) translateY(-20%);
 }
 
 
@@ -233,52 +230,100 @@
 .button2:active+.backdrop2,
 .button3:active,
 .button3:active+.backdrop3 {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 
 a {
-    color: inherit;
-    /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
+  color: inherit;
+  /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
 }
 
 .logo {
-    position: absolute;
-    top: 50%;
-    left: 39%;
-    transform: translate(-50%, -50%);
-    background-size: 50%;
+  position: relative;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  background-size: 50%;
 }
 
 .out-button {
-    position: absolute;   
-    bottom: 59px;   
-    left: 55%;   
-    transform: translateX(-50%);   
-    display: block;
-    width: 50%;
-    font-weight: bold;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    color: white;
-    padding-block: 15px;
-    margin: 10px auto;
-    border-radius: 20px;
-    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
+  position: absolute;
+  bottom: 59px;
+  left: 55%;
+  transform: translateX(-50%);
+  display: block;
+  width: 50%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 10px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  top: 85%;
+  height: 10%;
 }
 
 .inicio {
-    top: 100%;
-    text-align: center;
-    font-weight: 900;
-    font-size: 30px;
-    color: rgb(18, 211, 195);
+  top: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(18, 211, 195);
 }
 
 .nsbasetech {
-    text-align: center;
-    font-weight: 10;
-    font-size: 20px;
-    color: rgb(0, 2, 2);
+  text-align: center;
+  font-weight: 10;
+  font-size: 20px;
+  color: rgb(0, 2, 2);
+}
+
+@media screen and (max-width:1024px) {
+  .logo{
+   display:none;
+  }
+
+.button,
+.button1,
+.button2,
+.button3 {
+
+  left:5%;
+  margin-bottom: 5%;
+
+}
+
+.backdrop {
+  left:24%;
+  top: 18%;
+  margin-bottom: 5%;
+}
+.backdrop1 {
+  left:24%;
+  top: 35.5%;
+  margin-bottom: 5%;
+}
+.backdrop2 {
+  left:24%;
+  top: 52.5%;
+  margin-bottom: 5%;
+}
+.backdrop3 {
+
+  left:24%;
+  top: 69.5%;
+  margin-bottom: 5%;
+}
+
+.out-button {
+  top: 90%;
+  height: 7%;
+}
+
+
+
 }

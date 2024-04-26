@@ -185,8 +185,8 @@ body {
 }
 
 
-@media screen and (max-width:1312px){
-  .background-image{
+@media screen and (max-width:1024px){
+  .background-image {
     z-index: -1;
  background-size: 50%;
   }
