@@ -1,16 +1,16 @@
 body {
       display:flex;
-      justify-content: right; /* alinhamento horizontal */
-      align-items: center; /* alinhamento vertical */
+      justify-items: center;
+      align-items: center;
       height: 100vh; /* altura total da viewport */
       margin-right: 12% ;
      
   }
 
   .container {
-    
-    display: relative;
-    width: 890px;
+    position:relative;
+    left:30%;
+    width: 50%;
     height: 85%;
     background: #f8fdfd;
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
@@ -165,9 +165,9 @@ body {
   }
   
 
-  @media (max-width: 1312px){
+  @media (max-width: 900px){
     .container {
-      width: 90%;
+      width: 10%;
       height: 60%;
     }
     .logo{
