@@ -1,5 +1,3 @@
-
-
 verificaAutenticado()
 
 const modAgen = document.getElementById('mod-agen')
@@ -108,7 +106,7 @@ async function carregarLista(force) {
 
                 nameinp.value = arg.Nome
                 phoneinp.value = arg.Telefone
-                especialistainp.value = arg.Especialista
+                list.value = arg.Especialista
                 data_atendimentoinp.value = arg.Data_do_Atendimento
                 horario_consultainp.value = arg.Horario_da_consulta
                 valor_consultainpinp.value = arg.Valor_da_Consulta
@@ -264,9 +262,9 @@ setInterval(() => {
 }, 1000);
 
 
-const list = document.getElementById("lista");
+const list = document.getElementById("lista")
 
-(async () => {
+;(async () => {
     const token = localStorage.getItem(CHAVE)
 
     const response = await fetch('/verify', {
@@ -279,26 +277,24 @@ const list = document.getElementById("lista");
 
     const data = await response.json()
 
-    // data = USUARIO DO BANCO
+    // data = USUARIO DO BANCO LOGADO
 
-    const consultores = []
+// -----------------------------------
 
-    // VALIDACAO DE SECRETARIA MELHOR DPS
+    const response2 = await fetch('/users')
+    const consultores = await response2.json()
+
+
     if (data.Secretaria) {
-        consultores.push(
-            "Nayara",
-            "Sandra",
-            "Viviane"
-        )
+        consultores.forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+        })
     } else {
-        consultores.push(data.Usuario)
+        [data].forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            console.log(Usuario)
+        })
     }
-
-
-
-    consultores.forEach(consultor => {
-        list.innerHTML += `<option value="${consultor}">${consultor}</option>`
-    })
 })().catch(console.error)
 
 list.onchange = async function (e) {
@@ -308,33 +304,6 @@ list.onchange = async function (e) {
 }
 
 const espec = document.getElementById("especialista");
-
-
-const nomeDoDoutor1 = "(nenhum)"
-const nomeDoDoutor2 = "Nayara"
-const nomeDoDoutor3 = "Sandra"
-const nomeDoDoutor4 = "Viviane"
-
-
-espec.innerHTML += `<option>${nomeDoDoutor1}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor2}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor3}</option>`;
-espec.innerHTML += `<option>${nomeDoDoutor4}</option>`;
-
-// let retornoDoBanco = funcaoQuePegaDoBanco();
-
-// for (let index = 0; index < retornoDoBanco.length; index++) {
-//     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;
-
-// }
-
-
-// let retornoDoBanco = funcaoQuePegaDoBancoUSUARIO("parametroMedico");
-
-// for (let index = 0; index < retornoDoBanco.length; index++) {
-//     espec.innerHTML += `<option>${retornoDoBanco[index]}</option>`;    
-// }
-
 
 
 const statusp = document.getElementById("status_pagamento");
@@ -359,12 +328,25 @@ statusc.innerHTML += `<option>${tipoDoStatusc2}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc3}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc4}</option>`;
 
+let pacientesFiltrados = []
 
-document.getElementById('agendamento').addEventListener('click', () => {
+document.getElementById('agendamento').addEventListener('click', async () => {
+    if (list.value === "-") {
+        return
+    }
+
+    const response = await fetch('/pacientes')
+    const pacientes = await response.json()
+    pacientesFiltrados = pacientes.filter(({Especialista}) => Especialista === list.value)
+
+    nameinp.innerHTML = ''
+    pacientesFiltrados.forEach(item => {
+        nameinp.innerHTML += `<option value="${item.id}">${item.Nome}</option>`
+    })
+
     document.getElementById("formagendamento").dataset.agendamentoId = "0";
     nameinp.value = "" // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
     phoneinp.value = ""
-    especialistainp.value = ""
     data_atendimentoinp.value = ""
     horario_consultainp.value = ""
     valor_consultainpinp.value = ""
@@ -385,13 +367,17 @@ document.getElementById("btn_voltar_a").addEventListener("click", () => {
 
 const nameinp = document.getElementById("age_name") //O getElementById tem que ser igual o id
 const phoneinp = document.getElementById("phone")
-const especialistainp = document.getElementById("especialista")
 const data_atendimentoinp = document.getElementById("data_atendimento")
 const horario_consultainp = document.getElementById("horario_consulta")
 const valor_consultainpinp = document.getElementById("valor_consulta")
 const status_consultainp = document.getElementById("status_c")
 const status_pagamentoinp = document.getElementById("status_pagamento")
 const observacaoinp = document.getElementById("observacao")
+
+function atualizaTelefone() {
+    const paciente = pacientesFiltrados.find(paciente => paciente.id = nameinp.value)
+    phoneinp.value = paciente.Telefone
+}
 
 function calculadata() {
 
@@ -423,8 +409,7 @@ function calculadata() {
 
     for (var i = 1; i <= repeticoes; i++) {
         var data = new Date(dataBrasileira);
-        data.setDate(data.getDate() + i * periodo);
-        data.setHours()
+        data.setDate(data.getDate() + i * periodo)
         arrayData.push(data);
     }
     return arrayData;
@@ -457,10 +442,10 @@ function agendamento(event) {
 
                         Nome: nameinp.value, // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
                         Telefone: phoneinp.value,
-                        Especialista: especialistainp.value,
-                        Data_do_Atendimento: datasFuturasProgramadas[index],
+                        Especialista: list.value,
+                        Data_do_Atendimento: datasFuturasProgramadas[index].toISOString().split('T')[0],
                         Horario_da_consulta: horario_consultainp.value,
-                        Valor_da_Consulta: valor_consultainpinp.value,
+                        Valor_da_Consulta: Number(valor_consultainpinp.value),
                         Status_da_Consulta: status_consultainp.value,
                         Status_do_pagamento: status_pagamentoinp.value,
                         observacao: observacaoinp.value,
@@ -482,10 +467,10 @@ function agendamento(event) {
 
                 Nome: nameinp.value, // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
                 Telefone: phoneinp.value,
-                Especialista: especialistainp.value,
+                Especialista: list.value,
                 Data_do_Atendimento: data_atendimentoinp.value,
                 Horario_da_consulta: horario_consultainp.value,
-                Valor_da_Consulta: valor_consultainpinp.value,
+                Valor_da_Consulta: Number(valor_consultainpinp.value),
                 Status_da_Consulta: status_consultainp.value,
                 Status_do_pagamento: status_pagamentoinp.value,
                 observacao: observacaoinp.value,
@@ -499,7 +484,6 @@ function agendamento(event) {
 
             nameinp.value = "" // A escrita antes do : tem que ta igual ao campo que foi criado no prisma
             phoneinp.value = ""
-            especialistainp.value = ""
             data_atendimentoinp.value = ""
             horario_consultainp.value = ""
             valor_consultainpinp.value = ""
@@ -516,7 +500,7 @@ function agendamento(event) {
                 id: agendamentoId,
                 Nome: nameinp.value,
                 Telefone: phoneinp.value,
-                Especialista: especialistainp.value,
+                Especialista: list.value,
                 Data_do_Atendimento: data_atendimentoinp.value,
                 Horario_da_consulta: horario_consultainp.value,
                 Valor_da_Consulta: valor_consultainpinp.value,
@@ -545,7 +529,7 @@ function agendamento(event) {
                 Nome: nameinp.value,
                 Telefone: phoneinp.value,
                 Convenio: convenioinp.value,
-                Especialista: especialistainp.value,
+                Especialista: list.value,
                 Observacao: observacaoinp.value,
 
             }),
@@ -574,7 +558,6 @@ function espera(event) {
     const nameinp = document.getElementById("esp-name")
     const phoneinp = document.getElementById("phone")
     const convenioinp = document.getElementById("convenio")
-    const especialistainp = document.getElementById("esp-especialista")
     const observacaoinp = document.getElementById("observacao")
 
    
@@ -585,7 +568,7 @@ function espera(event) {
             Nome: nameinp.value,
             Telefone: phoneinp.value,
             Convenio: convenioinp.value,
-            Especialista: especialistainp.value,
+            Especialista: list.value,
             Observacao: observacaoinp.value,
         }),
         headers: {

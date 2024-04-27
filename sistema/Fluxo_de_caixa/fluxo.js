@@ -1,5 +1,6 @@
 verificaAutenticado()
 
+let Usuario = ""
 
 const tbody = document.querySelector("tbody");
 const descItem = document.querySelector("#desc");
@@ -30,7 +31,8 @@ btnNew.onclick = () => {
     body: JSON.stringify({
       Descricao,
       Valor,
-      Tipo
+      Tipo,
+      Especialista: Usuario
     }),
     headers: {
       "Content-Type": "application/json"
@@ -77,14 +79,12 @@ function insertItem(item, index) {
 }
 
 function loadItens() {
-  getItensBD().then(() => {
-    tbody.innerHTML = "";
-    items.forEach((item, index) => {
+  tbody.innerHTML = "";
+    items.filter(item => item.Especialista === Usuario).forEach((item, index) => {
       insertItem(item, index);
     });
 
     getTotals();
-  }).catch(console.error)
 }
 
 function getTotals() {
@@ -117,4 +117,22 @@ const getItensBD = async () => {
 }
 
 
-loadItens();
+
+;(async () => {
+  const token = localStorage.getItem(CHAVE)
+
+  const response = await fetch('/verify', {
+      body: JSON.stringify({ token }),
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/json"
+      }
+  })
+
+  const data = await response.json()
+
+  Usuario = data.Usuario
+
+  await  getItensBD()
+  loadItens();
+})().catch(console.error)

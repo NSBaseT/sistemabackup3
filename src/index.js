@@ -225,6 +225,25 @@ app.get("/Fluxo_de_caixa", async (req, res) => {
    const fluxos = await prisma.Fluxo_de_caixa.findMany()
 
 
+   const consultas = await prisma.Agendamento.groupBy({
+    by: ['Especialista'],
+        _sum: {
+            Valor_da_Consulta: true,
+        },
+        where: {
+            Status_do_pagamento: 'Pago'
+        }
+   })
+
+   consultas.forEach((consulta) => {
+        fluxos.push({
+            id: `esp-${consulta.Especialista}`,
+            Descricao: `Pacientes: ${consulta.Especialista}`,
+            Valor: String(consulta._sum.Valor_da_Consulta),
+            Tipo: 'Entrada'
+        })
+   })
+
     res.json(fluxos)
 
 })
@@ -281,6 +300,13 @@ app.get("/Lista_espera", async (req, res) => {
         message: "ok"
     })
 
+})
+
+app.get("/users", async (_, res) => {
+    const users = await prisma.cadastro_user.findMany()
+ 
+ 
+     res.json(users)
 })
 
 app.listen(porta, () => {

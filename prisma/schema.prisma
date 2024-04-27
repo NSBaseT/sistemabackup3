@@ -23,7 +23,7 @@ model Cadastro_pacientes {
   Numero   String
   CEP      String
 
-  
+  Especialista        String  
 }
 
 model Agendamento {
@@ -33,7 +33,7 @@ model Agendamento {
   Especialista        String
   Data_do_Atendimento String
   Horario_da_consulta String
-  Valor_da_Consulta   String
+  Valor_da_Consulta   Int
   Status_da_Consulta  String
   Status_do_pagamento String
   observacao          String
@@ -65,6 +65,7 @@ model Fluxo_de_caixa {
   Descricao String
   Valor     String
   Tipo      String
+  Especialista        String
 }
 
 model Espera {

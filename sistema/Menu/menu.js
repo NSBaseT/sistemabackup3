@@ -17,3 +17,43 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
       mainSide.classList.add("off") 
    }
  })
+
+let Usuario = ''
+
+ ;(async () => {
+   const token = localStorage.getItem(CHAVE)
+
+   const response = await fetch('/verify', {
+       body: JSON.stringify({ token }),
+       method: 'POST',
+       headers: {
+           "Content-Type": "application/json"
+       }
+   })
+
+   const data = await response.json()
+   Usuario = data.Usuario;
+
+   if (data.Secretaria) {
+      const btnFluxo = document.getElementById("btn_fluxo");
+      btnFluxo.parentNode.removeChild(btnFluxo);
+   } else {
+      // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
+   }
+
+   if (data.Profissional) {
+       // COISAS Q EU QUERO FAZER SE FOR PROFISSIONAL
+   } else {
+      // COISAS Q EU QUERO FAZER SE N FOR PROFISSIONAL
+   }
+})().catch(console.error)
+
+
+
+function redirecionaCadUser() {
+   if (Usuario === 'adm'){
+      location.href = '../cadastro_user/cadastro_user.html'
+   } else {
+      alert('PEDIR PERMISSÃO 😊')
+   }
+}

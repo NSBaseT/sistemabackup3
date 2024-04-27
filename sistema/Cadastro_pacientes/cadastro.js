@@ -14,6 +14,8 @@ document.getElementById("ch-side").addEventListener("change",event=>{
     window.location.href = '../Menu/menu.html';
 });
 
+const list = document.getElementById("lista")
+
 const nameinp = document.getElementById("name")
 const phoneinp = document.getElementById("phone")
 const emailinp = document.getElementById("email")
@@ -34,6 +36,7 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Especialista: lista.value
         }),
         headers: {
             "Content-Type": "application/json"
@@ -45,11 +48,7 @@ function cadastrar_paciente(event) {
 }
 
 
-
-
-
-
-(async () => {
+;(async () => {
     const token = localStorage.getItem(CHAVE)
 
     const response = await fetch('/verify', {
@@ -62,15 +61,22 @@ function cadastrar_paciente(event) {
 
     const data = await response.json()
 
-    const responsePacientes = await fetch('/pacientes')
-    const todosPacientes = await responsePacientes.json()
+    // data = USUARIO DO BANCO LOGADO
+
+// -----------------------------------
+
+    const response2 = await fetch('/users')
+    const consultores = await response2.json()
+
 
     if (data.Secretaria) {
-        // dasodkaskda
+        consultores.forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+        })
+    } else {
+        [data].forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            console.log(Usuario)
+        })
     }
-
-    if (data.Profissional) {
-       
-    }
-
 })().catch(console.error)

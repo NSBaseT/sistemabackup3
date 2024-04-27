@@ -32,14 +32,12 @@
 
         <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
 
-
-            <div class="margem">
-                <optgroup label="Especialista"></optgroup>
-                <select class="input" type="text" name="Especialista" id="especialista"></select>
-            </div>
-            <input class="input" type="text" name="name" id="age_name" placeholder="Nome" onclick="document.getElementById('especialista').value == '' ? alert('preencha o especialista') : 'liberado pra preencher' ">
+            <select class="input" name="name" id="age_name" onchange="atualizaTelefone()">
+              
+            </select>
+           
             <!-- <select class="input" type="text" name="name" id="name"  placeholder="Nome"></select> -->
-            <input class="input" type="text" name="phone" id="phone" placeholder="Telefone">
+            <input class="input" type="text" name="phone" id="phone" placeholder="Telefone" disabled>
             <br>
             <div>
                 <div class="campomenor">
@@ -77,7 +75,7 @@
             </div>
             <br>
 
-            <input class="input" type="money" name="valor_consulta" id="valor_consulta" placeholder="Valor da Consulta">
+            <input class="input" type="number" name="valor_consulta" id="valor_consulta" placeholder="Valor da Consulta">
 
             <h4 class="margem">Status do Pagamento</h4>
             <select id="status_pagamento" class="input" type="text"></select>
@@ -97,9 +95,7 @@
 
         
                 <!-- Lista espera -->
- <option>
-                            AAAAA
-                        </option>
+
                 <dialog id="mod-espera" class="esperaSt">
 
                 <form onsubmit="espera(event)" id="formespera" class="form">
@@ -114,9 +110,7 @@
 
                     <optgroup label="Especialista"></optgroup>
                     <select class="input" type="text" name="Especialista" id="esp-especialista">
-                        <option>
-                            AAAAA
-                        </option>
+                        
                     </select>
 
                     <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">

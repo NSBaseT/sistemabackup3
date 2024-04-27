@@ -25,21 +25,59 @@ function insertItem(item, index) {
   tbody.appendChild(tr);
 }
 
-function loadItens() {
-  getItensBD().then(() => {
-    tbody.innerHTML = "";
-    items.forEach((item, index) => {
-      insertItem(item, index);
-    });
+function loadItens(user) {
+  tbody.innerHTML = ''
 
-  }).catch(console.error)
+  items.filter(item => item.Especialista === user).forEach((item, index) => {
+    insertItem(item, index);
+  });
 }
 
 
 const getItensBD = async () => {
   const response = await fetch('/pacientes')
- const items = await response.json()
+ items = await response.json()
 }
 
 
-// loadItens();
+getItensBD()
+
+
+const list = document.getElementById("lista")
+
+list.addEventListener('change', e => {
+  loadItens(e.target.value)
+})
+
+;(async () => {
+  const token = localStorage.getItem(CHAVE)
+
+  const response = await fetch('/verify', {
+      body: JSON.stringify({ token }),
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/json"
+      }
+  })
+
+  const data = await response.json()
+
+  // data = USUARIO DO BANCO LOGADO
+
+// -----------------------------------
+
+  const response2 = await fetch('/users')
+  const consultores = await response2.json()
+
+
+  if (data.Secretaria) {
+      consultores.forEach(({Usuario, Nome}) => {
+          list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+      })
+  } else {
+      [data].forEach(({Usuario, Nome}) => {
+          list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+          console.log(Usuario)
+      })
+  }
+})().catch(console.error)
