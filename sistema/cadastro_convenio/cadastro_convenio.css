@@ -1,5 +1,5 @@
 body {
-  display:flex;
+  display: flex;
   justify-content: center;
   /* alinhamento horizontal */
   align-items: center;
@@ -21,7 +21,7 @@ body {
   border: 5px solid rgb(255, 255, 255);
   box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
   margin: 10px;
-  
+
 }
 
 .heading {
@@ -154,11 +154,11 @@ body {
   transition: all 0.2s ease-in-out;
   color: white;
   text-transform: uppercase;
- 
+
 }
 
 .contato {
- 
+
   font-size: 12.5px;
   width: 70%;
   font-weight: normal;
@@ -181,14 +181,16 @@ body {
   display: block;
   flex-direction: column;
   align-items: center;
-  width:85%;
   height: 580px;
+  margin: 0;
+  max-width: 50%;
+  width: 80%;
 }
 
 .switch-container main {
-  
+
   border-radius: 15px;
-  position: absolute;  
+  position: absolute;
   padding-top: 32px;
   width: 20%;
   height: 100%;
@@ -217,7 +219,7 @@ body {
   height: 0;
 }
 
-a{
+a {
   text-decoration: none;
   margin: 0;
   color: inherit;
@@ -258,9 +260,38 @@ input:checked+.slider:before {
   background: lightgreen;
 }
 
-/* css para celular */
-@media (max-width: 480px){
-body {
-    color: #299b8c;
+@media screen and (max-width:1200px) {
+  .container {
+    position: relative;
+    width: 45%;
+    top: -5%;
   }
+
+  .switch-container {
+    z-index: 9999999999;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .container {
+    z-index: -1;
+    position: relative;
+    width: 85%;
+    top: -5%;
+  }
+
+  .switch-container {
+    z-index: 9999999999;
+    max-width: 15%;
+    width: 90%;
+  }
+
+  h4 {
+    margin-top: 3%;
+  }
+
+  .input{
+    width: 75%;
+  }
+
 }

@@ -504,7 +504,7 @@ li::before {
 
 .agendamentoSt {
   overflow: auto;
-  left: 35%;
+  left: 25%;
   text-align: center;
   border-radius: 20px;
   width: 50%;

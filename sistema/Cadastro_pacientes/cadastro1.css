@@ -278,7 +278,7 @@ input:checked+.slider:before {
   }
 
 .switch-container{
- width: 100%;
+ width: 15%;
  height: 90%;
  margin: 0;
  border: 0;
@@ -298,6 +298,7 @@ input:checked+.slider:before {
   font-size: 70%;
   margin-left: 8%;
   text-align: center;
+  margin-top: 100%;
   
 }
 
@@ -329,4 +330,14 @@ input:checked+.slider:before {
     width: 30%;
     font-size: 65%;
   }  
+}
+
+@media screen and (max-width:1200px){
+  .container{
+    width: 65%;
+  }
+
+  .switch-container{
+    z-index:9999999999;
+      }
 }
