@@ -46,6 +46,8 @@ h4 {
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
   text-transform: uppercase;
+  margin-top: 90%;
+
 
 }
 
@@ -378,9 +380,12 @@ a {
 }
 
 .switch-container{
-  height: 600px;
+  height: 610px;
 }
 
+.contato{
+  margin-top:120%;
+}
 
 
 }
