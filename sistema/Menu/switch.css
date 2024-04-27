@@ -58,7 +58,7 @@ h4 {
   display: block;
   flex-direction: column;
   align-items: center;
-  height: 500px;
+  height: 580px;
   margin: 0;
   max-width: 30%;
   width: 15%;
@@ -143,8 +143,8 @@ input:checked+.slider:before {
 .button3 {
   z-index: 2;
   position: relative;
-  margin-top: 4%;
-  left: 55%;
+  margin-top: 5%;
+  left: 54.8%;
   width: 150px;
   height: 100px;
   border-radius: 15px;
@@ -159,6 +159,7 @@ input:checked+.slider:before {
   font-size: 13px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  
 }
 
 .button1 {
@@ -166,11 +167,11 @@ input:checked+.slider:before {
 }
 
 .button2 {
-  left: 59.35%;
+  left: 61.5%;
 }
 
 .button3 {
-  left: 59.35%;
+  left: 61.5%;
 }
 
 
@@ -190,7 +191,7 @@ input:checked+.slider:before {
 
 /* cadastro paciente */
 .backdrop {
-  top: 28.5%;
+  top: 28.6%;
   left: 53.8%;
 }
 
@@ -240,9 +241,9 @@ a {
 }
 
 .logo {
-  position: relative;
-  top: 50%;
-  left: 25%;
+  position:absolute; 
+  top: 55%;
+  left: 27%;
   transform: translate(-50%, -50%);
   background-size: 50%;
 }
@@ -282,7 +283,7 @@ a {
   color: rgb(0, 2, 2);
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1312px) {
   .logo{
    display:none;
   }
@@ -322,6 +323,62 @@ a {
 .out-button {
   top: 90%;
   height: 7%;
+}
+
+
+
+}
+@media screen and (max-width:1200px) {
+  .logo{
+   display:flex;
+   top: 46%;
+  }
+
+.button,
+.button1,
+.button2,
+.button3 {
+
+  left:48%;
+  margin: 3%;
+
+}
+/* cadastro paciente */
+.backdrop {
+  left:50.3%;
+  top: 24.5%;
+  margin-bottom: 5%;
+}
+/* agendamento */
+.backdrop1 {
+  left:50.3%;
+  top: 50.5%;
+  margin-bottom: 5%;
+}
+/* cadastro de convenio */
+.backdrop2 {
+  left:75.9%;
+  top: 24.5%;
+  margin-bottom: 5%;
+}
+
+
+/* fluxo */
+.backdrop3 {
+
+  left:75.9%;
+  top: 50.5%;
+  margin-bottom: 5%;
+}
+
+.out-button {
+  top: 80%;
+  height: 8%;
+  text-align: center;
+}
+
+.switch-container{
+  height: 600px;
 }
 
 

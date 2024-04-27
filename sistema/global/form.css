@@ -165,7 +165,7 @@ body {
   }
   
 
-  @media screen and (max-width:1024px) {
+  @media screen and (max-width:1312px) {
      .container{
       position:relative;
       margin:0;
@@ -175,9 +175,21 @@ body {
       height: 85%;
       z-index: 1;
       top:-4%;
-      left:20%;
-
-      
+      left:20%;      
     }
+  }
+
+    @media screen and (max-width:1200px) {
+      .container{
+       position:relative;
+       margin:0;
+       max-width: 85%;
+       max-height: 70%;
+       width: 80%;
+       height: 85%;
+       z-index: 1;
+       top:-4%;
+       left:20%;      
+     }
   }
  
