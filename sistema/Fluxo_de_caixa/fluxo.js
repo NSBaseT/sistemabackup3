@@ -136,3 +136,17 @@ const getItensBD = async () => {
   await  getItensBD()
   loadItens();
 })().catch(console.error)
+
+document.getElementById("ch-side").addEventListener("change",event=>{
+  const mainSide=document.getElementById("main-side")
+  if(event.target.checked){
+     mainSide.classList.remove("off") 
+  }
+  else{
+     mainSide.classList.add("off") 
+  }
+})
+
+document.getElementById("btn_voltar_flx").addEventListener("click", () => {
+  window.location.href = '../Menu/menu.html';
+});
