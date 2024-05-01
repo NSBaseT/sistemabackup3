@@ -80,3 +80,13 @@ model Espera {
   Observacao          String
 
 }
+
+model cadastro_prof {
+  id                         String @id @default(uuid())
+ Nome                        String
+ Faixa_Etaria_de_Atendimento String
+ Dias_de_Atendimento         String
+ Horarios_de_Atendimento     String
+ Especialidade               String
+ Registro_do_Profissional    String
+}

@@ -309,6 +309,16 @@ app.get("/users", async (_, res) => {
      res.json(users)
 })
 
+app.post("/cadastro_prof", async (req, res) => {
+    await prisma.cadastro_prof.create({
+        data: req.body
+    })
+
+    res.status(201).json({
+        message: "ok"
+    })
+})
+
 app.listen(porta, () => {
     console.log(`servidor rodando na porta ${porta}`)
 })
