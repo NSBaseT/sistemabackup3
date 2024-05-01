@@ -23,6 +23,10 @@ const cpf_cnpjinp = document.getElementById("cpf_cnpj")
 const addressinp = document.getElementById("address")
 const numberinp = document.getElementById("number")
 const cepinp = document.getElementById("cep")
+const namepaiinp = document.getElementById("namepai")
+const phonepaiinp = document.getElementById("phonepai")
+const namemaeinp = document.getElementById("namemae")
+const phonemaeinp = document.getElementById("phonemae")
 
 function cadastrar_paciente(event) {
     event.preventDefault()
@@ -36,7 +40,11 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
-            Especialista: lista.value
+            Nome_do_Pai_ou_Responsavel: namepaiinp.value,
+            Telefone_Pai: phonepaiinp.value,
+            Nome_da_Mae_ou_Responsavel: namemaeinp.value,
+            Telefone_Mae: phonemaeinp.value,
+            Especialista: lista.value,
         }),
         headers: {
             "Content-Type": "application/json"
@@ -80,3 +88,10 @@ function cadastrar_paciente(event) {
         })
     }
 })().catch(console.error)
+
+document.getElementById('mostrarSubforme').addEventListener('change', function () {
+    var subforme = document.getElementById('subforme');
+    subforme.style.display = this.checked ? 'block' : 'none';
+});
+
+

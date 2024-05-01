@@ -14,6 +14,13 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="lista.css">
 
+    <style>
+        /* Oculta o subformulário por padrão */
+        #subforme {
+            display: none;
+        }
+    </style>
+
 
     <title>Cadastro de Pacientes</title>
 </head>
@@ -84,24 +91,36 @@
             <input class="input" name="name" id="name" placeholder="Nome"></input>
             <input class="input" name="phone" id="phone" placeholder="Telefone">
             <input class="input" name="email" id="email" placeholder="E-mail"></input>
+            <input class="input" name="address" id="address" placeholder="Endereço"></input>
             <input class="input" type="NUMBER" name="number" id="number" placeholder="Numero"></input>
             <input class="input" name="cep" id="cep" placeholder="CEP"></input>
             <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
                 pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
             </input>
-            <input class="input" name="address" id="address" placeholder="Endereço"></input>
-
-            <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
 
             <div>
+                <input style="margin-top:5%;" type="checkbox" id="mostrarSubforme"> É criança?</input>
+                <form>
+                    
+                        <div id="subforme">
+                            <input class="input" name="name" id="namepai"
+                                placeholder="Nome do Pai ou Responsavel"></input>
+                            <input class="input" name="phone" id="phonepai" placeholder="Telefone Pai"></input>
+                            <input class="input" name="name" id="namemae"
+                                placeholder="Nome da Mãe ou Responsavel"></input>
+                            <input class="input" name="phone" id="phonemae" placeholder="Telefone Mãe"></input>
+                        </div>
+                    
+                </form>
+                <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
                 <a href="../Cadastro_pacientes/lista_pacientes.html">
-                <button type="button" class="login-button">
-                    <i class="bi bi-person-lines-fill"></i> LISTA DE PACIENTES
-                </button>
+                    <button type="button" class="login-button">
+                        <i class="bi bi-person-lines-fill"></i> LISTA DE PACIENTES
+                    </button>
                 </a>
-            </div>
+            </div> 
+              
         </form>
-
 
     </div>
 

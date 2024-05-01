@@ -14,16 +14,19 @@ datasource db {
 }
 
 model Cadastro_pacientes {
-  id       String @id @default(uuid())
-  Nome     String
-  Telefone String
-  Email    String
-  CPF_CNPJ String @unique
-  Endereco String
-  Numero   String
-  CEP      String
-
-  Especialista        String  
+  id                         String @id @default(uuid())
+  Nome                       String
+  Telefone                   String
+  Email                      String
+  CPF_CNPJ                   String @unique
+  Endereco                   String
+  Numero                     String
+  CEP                        String
+  Nome_do_Pai_ou_Responsavel String
+  Telefone_Pai                  String
+  Nome_da_Mae_ou_Responsavel String
+  Telefone_Mae                  String
+  Especialista               String  
 }
 
 model Agendamento {
