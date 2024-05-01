@@ -399,3 +399,41 @@ i{
 }
 
 }
+
+@media screen and (max-width:800px) {
+  
+  .containertabela{
+    width: 132%;
+  }
+  
+  .container{
+    height: 140%;
+    width: 80%;
+    top: 5%;
+  }
+  
+  .switch-container{
+    width: 130%;
+  }
+  
+  .escrita{
+    font-size: 85%;
+  }
+  
+  i{
+    width: 20%;
+  }
+  
+  .voltar-button{
+    position: absolute;
+    left:4%;
+    width: 15%;
+    top:8%;
+  }
+
+  th {
+    margin-right:15%;
+    
+  }
+  
+  }

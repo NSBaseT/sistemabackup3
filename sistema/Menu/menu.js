@@ -18,7 +18,7 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    }
  })
 
-let Usuario = ''
+ let Usuario = ''
 
  ;(async () => {
    const token = localStorage.getItem(CHAVE)
@@ -37,6 +37,7 @@ let Usuario = ''
    if (data.Secretaria) {
       const btnFluxo = document.getElementById("btn_fluxo");
       btnFluxo.parentNode.removeChild(btnFluxo);
+      
    } else {
       // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
    }
@@ -50,10 +51,10 @@ let Usuario = ''
 
 
 
-function redirecionaCadUser() {
-   if (Usuario === 'adm'){
-      location.href = '../cadastro_user/cadastro_user.html'
-   } else {
-      alert('PEDIR PERMISSÃO 😊')
-   }
-}
+ function redirecionaCadUser() {
+    if (Usuario === 'Adm'){
+       location.href = '../cadastro_user/cadastro_user.html'
+    } else {
+       alert('Entrar em contato com Administrativo')
+    }
+ }

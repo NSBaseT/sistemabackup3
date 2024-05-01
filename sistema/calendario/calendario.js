@@ -3,6 +3,8 @@ verificaAutenticado()
 const modAgen = document.getElementById('mod-agen')
 const modEspera = document.getElementById('mod-espera')
 
+let todosPacientes = []
+
 const isLeapYear = (year) => {
     return (
         (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
@@ -97,7 +99,7 @@ async function carregarLista(force) {
         const contentEl = document.getElementById(contentId);
 
         if (contentEl) {
-            contentEl.innerHTML = `${arg.Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
+            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id).Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
 
             contentEl.style = 'cursor: pointer; user-select: none;'
 
@@ -284,7 +286,6 @@ const list = document.getElementById("lista")
     const response2 = await fetch('/users')
     const consultores = await response2.json()
 
-
     if (data.Secretaria) {
         consultores.forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
@@ -328,16 +329,20 @@ statusc.innerHTML += `<option>${tipoDoStatusc2}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc3}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc4}</option>`;
 
+;(async () => {
+    const response = await fetch('/pacientes')
+    todosPacientes = await response.json()
+})()
+
 let pacientesFiltrados = []
 
-document.getElementById('agendamento').addEventListener('click', async () => {
+
+document.getElementById('agendamento').addEventListener('click', () => {
     if (list.value === "-") {
         return
     }
 
-    const response = await fetch('/pacientes')
-    const pacientes = await response.json()
-    pacientesFiltrados = pacientes.filter(({Especialista}) => Especialista === list.value)
+    pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
 
     nameinp.innerHTML = ''
     pacientesFiltrados.forEach(item => {
