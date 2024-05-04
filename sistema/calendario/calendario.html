@@ -9,6 +9,7 @@
     <title>Calendário</title>
     <link rel="stylesheet" href="calendario.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -42,11 +43,11 @@
             <div>
                 <div class="campomenor">
                     <label for="date">Data do Atendimento</label>
-                    <input class="inputdata" type="date" name="data_atendimento" id="data_atendimento">
+                    <input class="inputdata" type="date" name="data_atendimento" id="data_atendimento" required>
                 
                 
                     <label for="date">Horário da Consulta</label>
-                    <input class="inputdata" type="time" name="horario_consulta" id="horario_consulta">
+                    <input class="inputdata" type="time" name="horario_consulta" id="horario_consulta" required>
                     <input type="checkbox" id="mostrarSubform"> Repetir
                 </div>
             </div>
@@ -136,7 +137,41 @@
                     </table>
                   </div>
             </dialog>
+       
+            <dialog id="mod-cancelado" class="canceladoSt">
+                <form onsubmit="cancelado(event)" id="formcancelado" class="form">
 
+                    <select class="input" name="name" id="age_name_cancelado">
+                        <option value="">Selecione um paciente</option>
+                    </select>
+                    <br>
+                    <br>
+                    <button onclick="loadConsultas(event)">Buscar Consultas</button>
+                    <br>    
+                    <button onclick="deleteSelectedRows(event)">Excluir Selecionados</button>
+                    <br>
+
+                    <div><b>Lista de Consultas</b></div>
+                <div class= "containertabela">
+                    <div class="tableCancelados">
+                      <table id="tableCancelados">
+                        <thead>
+                          <tr>
+                            <th>Selecione</th>
+                            <th class="columnAmount">Nome do Paciente</th>
+                            <th class="columnType">Data da Consulta</th>
+                            <th class="columnAction">Hora da Consulta</th>
+                            <th class="columnAction">Status da Consulta</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tbodyCancelado">
+                        </tbody>
+            
+                      </table>
+                    </div>
+                    <input class="login-button" type="button" value="FECHAR" id="btn-close-cancelado">
+                </form>
+            </dialog>
 
     <header>
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_a">
@@ -157,12 +192,20 @@
             <i class="ph ph-clock" style="color: white; height: full; width: full;"></i>
         </button>
 
+        <button id="cancelado"
+        onclick="AbrirCancelado()"
+            style="padding: 8px; background: #0D87E9; border-radius: 8px; justify-content: center; align-items: center; display: flex">
+            <i class="bi bi-list-check" style="color: white; height: full; width: full;"></i>
+        </button>
+
         <button id="agendamento"
             style="padding: 8px; background: #439A46; border-radius: 8px; justify-content: center; align-items: center; gap: 16px; display: flex">
             <i class="ph ph-plus" style="color: white;"></i>
             <div style="color: white; font-size: 12px; font-family: Nunito; font-weight: 400; word-wrap: break-word">
                 NOVO AGENDAMENTO</div>
         </button>
+
+       
 
     </header>
 
@@ -211,7 +254,9 @@
 
             </ol>
         </div>
-        </div>
+       
+    
+          </div>
     </main>
     <script src="../global/auth.js"></script>
     <script src="calendario.js"></script>

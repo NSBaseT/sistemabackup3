@@ -99,9 +99,40 @@ app.get("/agendamentos", async (req, res) => {
     const agendamentos = await prisma.agendamento.findMany({
         orderBy: {
             Horario_da_consulta: 'asc'
-        }
+        },
+        where: {
+            NOT: {
+                Status_da_Consulta: 'Cancelado'
+            }
+          }
     })
     res.status(201).json(agendamentos) 
+})
+
+app.get("/agendamentos_filtrado", async (req, res) => {
+    let filter = req.query.id;
+    console.log(filter)
+    const agendamentos_filtrados = await prisma.agendamento.findMany({
+        orderBy: {
+            Horario_da_consulta: 'asc'
+        },
+        where: {Nome: filter, NOT: {
+            Status_da_Consulta: 'Cancelado'
+        }}
+    })
+    res.status(201).json(agendamentos_filtrados) 
+})
+
+app.put("/agendamento_desabilitado", async (req, res) => {
+    // STATUS - CANCELADO
+    await prisma.agendamento.update({
+        data: req.body,
+        where: {id: req.body.id}
+    })
+
+    res.status(200).json({
+        message: "ok"
+    })
 })
 
 app.get("/pacientes", async (req, res) => {

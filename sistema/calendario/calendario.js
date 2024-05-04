@@ -2,6 +2,7 @@ verificaAutenticado()
 
 const modAgen = document.getElementById('mod-agen')
 const modEspera = document.getElementById('mod-espera')
+const modCancelado = document.getElementById('mod-cancelado')
 
 let todosPacientes = []
 
@@ -551,8 +552,15 @@ function agendamento(event) {
 }
 
 
+
 function AbrirEspera() {
-    modEspera.showModal()
+    // modEspera.showModal()
+    if (typeof modEspera.showModal === "function") {
+        modEspera.showModal(); // Abre o modal
+    } else {
+        // Fallback para navegadores que não suportam showModal
+        modEspera.style.display = "block";
+    }
 }
 
 function espera(event) {
@@ -621,3 +629,131 @@ function loadItens() {
 }
 
 loadItens()
+
+// CANCELADO
+
+const tbodyCancelado = document.getElementById("tbodyCancelado");
+
+const getConsultasBD = async (valuePacienteFiltrado) => {
+
+    const response = await fetch("/agendamentos_filtrado?id="+valuePacienteFiltrado, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    itemsCancelado = await response.json();
+}
+
+function loadConsultas(event) {    
+    event.preventDefault()
+    let pacienteFiltrado = document.getElementById("age_name_cancelado");
+    let valuePacienteFiltrado = pacienteFiltrado.value;
+    getConsultasBD(valuePacienteFiltrado).then(() => {
+        tbodyCancelado.innerHTML = "";
+        itemsCancelado.forEach((item, index) => {
+            insertItemCancelado(item, index);
+        });
+
+    }).catch(console.error)
+}
+
+
+
+function insertItemCancelado(item, index) {
+    let tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td><input type="checkbox"></td>
+      <td id="${item.id}">${item.Nome}</td>
+      <td>${item.Data_do_Atendimento}</td>
+      <td>${item.Horario_da_consulta}</td>
+      <td>${item.Status_da_Consulta}</td>
+    `;
+
+    tbodyCancelado.appendChild(tr);
+}
+
+  
+
+function deleteItemInDB(event,index) {
+    fetch("/agendamento_desabilitado", {
+      method: "PUT",
+      body: JSON.stringify({
+        id: index,
+        Status_da_Consulta: "Cancelado",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(response => response.json()).then(data => {
+        loadConsultas(event)
+    })
+}
+
+
+function deleteSelectedRows(event) {
+
+    event.preventDefault()
+  
+    var table = document.getElementById("tableCancelados");
+    var checkboxes = table.querySelectorAll("input[type='checkbox']:checked");
+  
+    checkboxes.forEach(function(checkbox) {
+      var row = checkbox.parentNode.parentNode;
+  
+      var parentTd = checkbox.parentElement;
+      var nextTd = parentTd.nextElementSibling;
+    var idDoElemento = nextTd.getAttribute('id');
+    //   row.parentNode.removeChild(row);
+  
+      deleteItemInDB(event,idDoElemento);
+    });
+  }
+
+  var elementos = document.getElementsByClassName('trashCancelado');
+
+  // Itera sobre a lista de elementos
+  for (var i = 0; i < elementos.length; i++) {
+      // Adiciona um ouvinte de evento de clique a cada elemento
+      elementos[i].addEventListener('click', function(event) {
+          // Impede o comportamento padrão do evento (neste caso, o clique)
+          event.preventDefault();
+          
+          // Insira aqui o que você deseja fazer quando um elemento com a classe 'trashCancelado' for clicado
+      });
+  }
+
+
+document.getElementById('btn-close-cancelado').addEventListener('click', () => {
+    modCancelado.close()
+})
+
+function AbrirCancelado() {
+    // modEspera.showModal()
+    if (typeof modCancelado.showModal === "function") {
+        modCancelado.showModal(); // Abre o modal
+    } else {
+        // Fallback para navegadores que não suportam showModal
+        modCancelado.style.display = "block";
+    }
+}
+
+let pacientesFiltradosCancelado = []
+const nameinpcancelado = document.getElementById("age_name_cancelado")
+
+
+document.getElementById('cancelado').addEventListener('click', () => {
+    if (list.value === "-") {
+        return
+    }
+
+    pacientesFiltradosCancelado = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+
+    nameinpcancelado.innerHTML = ''
+    pacientesFiltradosCancelado.forEach(item => {
+        nameinpcancelado.innerHTML += `<option value="${item.id}">${item.Nome}</option>`
+    })
+
+    modCancelado.showModal()
+});
