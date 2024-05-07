@@ -1,5 +1,19 @@
 verificaAutenticado()
 
+document.getElementById("ch-side").addEventListener("change",event=>{
+  const mainSide=document.getElementById("main-side")
+  if(event.target.checked){
+     mainSide.classList.remove("off") 
+  }
+  else{
+     mainSide.classList.add("off") 
+  }
+})
+
+document.getElementById("btn_voltar_li").addEventListener("click", () => {
+  window.location.href = '../Menu/menu.html';
+});
+
 const tbody = document.querySelector("tbody");
 const type = document.querySelector("#type");
 let items = [];
@@ -18,7 +32,7 @@ function insertItem(item, index) {
     <td>${item.Nome}</td>
   </td>
     <td class="columnAction">
-      <button onclick="editarItem(${index})"><i class='bx bx-trash'></i></button>
+      <button onclick="editarItem(${index})"><i class='bi bi-pencil'></i></button>
     </td>
   `;
 

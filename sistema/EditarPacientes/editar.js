@@ -3,7 +3,7 @@ document.getElementById("btn_voltar_c").addEventListener("click", () => {
     window.location.href = '../Menu/menu.html'
 })
 
-
+const list = document.getElementById("lista")
 const nameinp = document.getElementById("name")
 const phoneinp = document.getElementById("phone")
 const emailinp = document.getElementById("email")
@@ -24,6 +24,8 @@ const cepinp = document.getElementById("cep");
      addressinp.value = data.Endereco
      numberinp.value = data.Numero
      cepinp.value = data.CEP
+     
+    
 })();
 
 function cadastrar_paciente(event) {
@@ -39,6 +41,7 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Especialista: lista.value,
         }),
         headers: {
             "Content-Type": "application/json"
