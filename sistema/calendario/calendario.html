@@ -34,9 +34,9 @@
         <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
 
             <select class="input" name="name" id="age_name" onchange="atualizaTelefone()">
-              
+
             </select>
-           
+
             <!-- <select class="input" type="text" name="name" id="name"  placeholder="Nome"></select> -->
             <input class="input" type="text" name="phone" id="phone" placeholder="Telefone" disabled>
             <br>
@@ -44,8 +44,8 @@
                 <div class="campomenor">
                     <label for="date">Data do Atendimento</label>
                     <input class="inputdata" type="date" name="data_atendimento" id="data_atendimento" required>
-                
-                
+
+
                     <label for="date">Horário da Consulta</label>
                     <input class="inputdata" type="time" name="horario_consulta" id="horario_consulta" required>
                     <input type="checkbox" id="mostrarSubform"> Repetir
@@ -56,27 +56,28 @@
                 <label>
 
                     <div id="subform">
-                        <label  for="periodo">Período:</label>
+                        <label for="periodo">Período:</label>
                         <select style="margin:2%;" name="periodo" id="periodo">
                             <option value="">Selecione...</option>
                             <option value="semanal">Semanal</option>
                             <option value="quinzenal">Quinzenal</option>
                             <option value="mensal">Mensal</option>
                             <option value="anual">Anual</option>
-                        </select>                     
-                        
-                        <label for="repeticoes">Repetições:</label>
-                        <input class="inputdata" type="number" id="repeticoes">                
-                       
+                        </select>
 
-                       
+                        <label for="repeticoes">Repetições:</label>
+                        <input class="inputdata" type="number" id="repeticoes">
+
+
+
                 </label>
 
             </form>
             </div>
             <br>
 
-            <input class="input" type="number" name="valor_consulta" id="valor_consulta" placeholder="Valor da Consulta">
+            <input class="input" type="number" name="valor_consulta" id="valor_consulta"
+                placeholder="Valor da Consulta">
 
             <h4 class="margem">Status do Pagamento</h4>
             <select id="status_pagamento" class="input" type="text"></select>
@@ -94,84 +95,90 @@
         </form>
     </dialog>
 
+
+    <!-- Lista espera -->
+
+    <dialog id="mod-espera" class="esperaSt">
+
+        <form onsubmit="espera(event)" id="formespera" class="form">
+
+            <div class="heading">Lista de Espera</div>
+
+
+            <input class="input" name="name" id="esp-name" placeholder="Nome"></input>
+            <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
+            <input class="input" name="convenio" id="convenio" placeholder="Convênio"></input>
+            <input class="input" type="text" name="observacao" id="observacao" placeholder="Observação">
+
+            <optgroup label="Especialista"></optgroup>
+            <select class="input" type="text" name="Especialista" id="esp-especialista">
+
+            </select>
+
+            <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">
+
+        </form>
+
+
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="columnAmount">Nome</th>
+                        <th class="columnType">Telefone</th>
+                        <th class="columnAction">Convênio</th>
+                        <th class="columnAction">Especialista</th>
+                        <th class="columnAction">Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+
+            </table>            
+        </div>
+        <input  class="close-button"  type="button" value="FECHAR" id="btn-close-espera">
+    </dialog>
+
+    <dialog id="mod-cancelado" class="canceladoSt">
         
-                <!-- Lista espera -->
+        <form onsubmit="cancelado(event)" id="formcancelado" class="form">
+           
+            <div class="heading">Lista de Consultas</div>
 
-                <dialog id="mod-espera" class="esperaSt">
+            <select class="input" name="name" id="age_name_cancelado" style="margin-bottom: 2%; margin-right: 2%;">
+                <option value="">Selecione um paciente</option>
+            </select>
+            
+            <button  class="cancel-button"onclick="loadConsultas(event)">Buscar Consultas</button>
+            <br>
+            
+            <br>
 
-                <form onsubmit="espera(event)" id="formespera" class="form">
-
-                     <div><b>Lista de Espera</b></div>
-
-
-                    <input class="input" name="name" id="esp-name" placeholder="Nome"></input>
-                    <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
-                    <input class="input" name="convenio" id="convenio" placeholder="Convênio"></input>
-                    <input class="input" type="text" name="observacao" id="observacao" placeholder="Observação">
-
-                    <optgroup label="Especialista"></optgroup>
-                    <select class="input" type="text" name="Especialista" id="esp-especialista">
-                        
-                    </select>
-
-                    <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">
-
-                </form>
-
-
-                <div class="divTable">
-                    <table>
-                      <thead>
-                        <tr>
-                         
-                          <th class="columnAmount">Nome</th>
-                          <th class="columnType">Telefone</th>
-                          <th class="columnAction">Convênio</th>
-                          <th class="columnAction">Especialista</th>
-                          <th class="columnAction">Observação</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-          
-                    </table>
-                  </div>
-            </dialog>
-       
-            <dialog id="mod-cancelado" class="canceladoSt">
-                <form onsubmit="cancelado(event)" id="formcancelado" class="form">
-
-                    <select class="input" name="name" id="age_name_cancelado">
-                        <option value="">Selecione um paciente</option>
-                    </select>
-                    <br>
-                    <br>
-                    <button onclick="loadConsultas(event)">Buscar Consultas</button>
-                    <br>    
-                    <button onclick="deleteSelectedRows(event)">Excluir Selecionados</button>
-                    <br>
-
-                    <div><b>Lista de Consultas</b></div>
-                <div class= "containertabela">
-                    <div class="tableCancelados">
-                      <table id="tableCancelados">
+            <div><b>Lista de Consultas</b></div>
+            <div class="containertabela">
+                <div class="tableCancelados">
+                    <table id="tableCancelados">
                         <thead>
-                          <tr>
-                            <th>Selecione</th>
-                            <th class="columnAmount">Nome do Paciente</th>
-                            <th class="columnType">Data da Consulta</th>
-                            <th class="columnAction">Hora da Consulta</th>
-                            <th class="columnAction">Status da Consulta</th>
-                          </tr>
+                            <tr>
+                                <th>Selecione</th>
+                                <th class="columnAmount">Nome do Paciente</th>
+                                <th class="columnType">Data da Consulta</th>
+                                <th class="columnAction">Hora da Consulta</th>
+                                <th class="columnAction">Status da Consulta</th>
+                            </tr>
                         </thead>
                         <tbody id="tbodyCancelado">
                         </tbody>
-            
-                      </table>
-                    </div>
-                    <input class="login-button" type="button" value="FECHAR" id="btn-close-cancelado">
-                </form>
-            </dialog>
+
+                    </table>
+                </div>
+                
+                <button  class="cancel-button"onclick="deleteSelectedRows(event)">Excluir Selecionados</button>
+
+                <input class="login-button" type="button" value="FECHAR" id="btn-close-cancelado">
+        </form>
+    
+    </dialog>
 
     <header>
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_a">
@@ -186,14 +193,12 @@
             <option value="-">Selecione um especialista</option>
         </select>
 
-        <button id="espera"
-        onclick="AbrirEspera()"
+        <button id="espera" onclick="AbrirEspera()"
             style="padding: 8px; background: #0D87E9; border-radius: 8px; justify-content: center; align-items: center; display: flex">
             <i class="ph ph-clock" style="color: white; height: full; width: full;"></i>
         </button>
 
-        <button id="cancelado"
-        onclick="AbrirCancelado()"
+        <button id="cancelado" onclick="AbrirCancelado()"
             style="padding: 8px; background: #0D87E9; border-radius: 8px; justify-content: center; align-items: center; display: flex">
             <i class="bi bi-list-check" style="color: white; height: full; width: full;"></i>
         </button>
@@ -205,7 +210,7 @@
                 NOVO AGENDAMENTO</div>
         </button>
 
-       
+
 
     </header>
 
@@ -254,9 +259,9 @@
 
             </ol>
         </div>
-       
-    
-          </div>
+
+
+        </div>
     </main>
     <script src="../global/auth.js"></script>
     <script src="calendario.js"></script>

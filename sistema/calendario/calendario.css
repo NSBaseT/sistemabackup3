@@ -519,10 +519,26 @@ li::before {
   text-align: center;
   border-radius: 20px;
   width: 50%;
+  height: 100%;
   border: none;
   margin-top: 2%;
   
 }
+
+.divTable {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+table {
+
+  width: 98%;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
 
 .inputdata{
   border:none;
@@ -535,7 +551,7 @@ li::before {
 .heading {
   text-align: center;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(18, 211, 195);
 }
 
@@ -583,6 +599,20 @@ li::before {
 }
 
 .form .login-button {
+  display: block;
+  width: 20%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.close-button {
   display: block;
   width: 20%;
   font-weight: bold;
@@ -656,6 +686,13 @@ label {
 }
 
 .canceladoSt{
+  left: 25%;
+  border:none;
+  border-radius: 5%;
+  padding: 2%;
+
+  
+    
   table {
       border-collapse: collapse;
       width: 100%;
@@ -674,6 +711,26 @@ label {
   .selected {
       background-color: #aaf;
   }
+  
+  }
+
+
+
+  .form .cancel-button {
+    width: 25%;
+    align-items: center;
+    margin-top: 0.5%;  
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: white;
+    padding-block: 8px;
+    border-radius: 20px;
+    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
   }
 
 
