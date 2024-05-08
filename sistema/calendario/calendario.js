@@ -385,6 +385,7 @@ function atualizaTelefone() {
     phoneinp.value = paciente.Telefone
 }
 
+
 function calculadata() {
 
     var repeticoes = parseInt(document.getElementById("repeticoes").value);
@@ -669,7 +670,7 @@ function insertItemCancelado(item, index) {
 
     tr.innerHTML = `
       <td><input type="checkbox"></td>
-      <td id="${item.value}">${item.Nome}</td>
+      <td id="${item.id}">${item.Nome}</td>
       <td>${item.Data_do_Atendimento}</td>
       <td>${item.Horario_da_consulta}</td>
       <td>${item.Status_da_Consulta}</td>
