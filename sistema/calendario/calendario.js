@@ -647,7 +647,12 @@ const getConsultasBD = async (valuePacienteFiltrado) => {
           "Content-Type": "application/json",
         },
       });
-    itemsCancelado = await response.json();
+
+    itemsCancelado = await response.json()
+    itemsCancelado.map(arg => {
+        arg.Nome = todosPacientes.find(({id}) => id === arg.Nome).Nome
+        return arg
+    })
 }
 
 function loadConsultas(event) {    

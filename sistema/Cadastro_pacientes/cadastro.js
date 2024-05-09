@@ -84,7 +84,7 @@ function cadastrar_paciente(event) {
     } else {
         [data].forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            console.log(Usuario)
+          
         })
     }
 })().catch(console.error)

@@ -118,7 +118,7 @@ app.get("/agendamentos_filtrado", async (req, res) => {
         },
         where: {Nome: filter, NOT: {
             Status_da_Consulta: 'Cancelado'
-        }}
+        }},
     })
     res.status(201).json(agendamentos_filtrados) 
 })
