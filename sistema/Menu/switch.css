@@ -139,7 +139,7 @@ input:checked+.slider:before {
   background: lightgreen;
 }
 
-.button,
+.button0,
 .button1,
 .button2,
 .button3 {
@@ -215,7 +215,7 @@ input:checked+.slider:before {
   left: 78%;
 }
 
-.button:hover+.backdrop,
+.button0:hover+.backdrop,
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
 .button3:hover+.backdrop3 {
@@ -225,8 +225,8 @@ input:checked+.slider:before {
 }
 
 
-.button:active,
-.button:active+.backdrop,
+.button0:active,
+.button0:active+.backdrop,
 .button1:active,
 .button1:active+.backdrop1,
 .button2:active,
@@ -383,7 +383,7 @@ a {
    
   }
 
-.button,
+.button0,
 .button1,
 .button2,
 .button3 {
