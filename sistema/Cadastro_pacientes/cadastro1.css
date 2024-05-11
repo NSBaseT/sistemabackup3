@@ -260,7 +260,7 @@ input:checked+.slider:before {
   background: lightgreen;
 }
 
-@media screen and (max-width:1312px){
+@media screen and (max-width:1260px){
   /* barra lateral */
   .slider{
     width: 45%;     
@@ -321,12 +321,19 @@ input:checked+.slider:before {
   }  
 }
 
-@media screen and (max-width:1200px){
+@media screen and (max-width:412px){
   .container{
-    width: 65%;
+    width: 90%;
+    padding: 5%;
+    margin: 0;
   }
 
   .switch-container{
     z-index:9999999999;
+    width: 90%;
+      }
+
+      .contato{
+        margin-top: 280%;
       }
 }
