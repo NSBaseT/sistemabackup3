@@ -10,6 +10,10 @@ body {
   /* remova margens padrão */
 }
 
+.NS{
+  text-align: center;
+}
+
 
 .container {
   max-width: 70%;
@@ -128,10 +132,6 @@ body {
   margin-bottom: 0px;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -139,10 +139,17 @@ body {
 }
 
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
 .escrita {
   margin-top: 10%;
   display: block;
-  font-size: 15px;
+  font-size: 13.5px;
   width: 70%;
   font-weight: normal;
   color: white;
@@ -164,13 +171,14 @@ body {
   font-weight: normal;
   color: white;
   padding-block: 5px;
-  margin: 0;
+  margin-top: 150%;
   border-radius: 20px;
   box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
   border: none;
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
   text-transform: uppercase;
+
 }
 
 .switch-container {

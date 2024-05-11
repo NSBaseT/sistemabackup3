@@ -64,10 +64,10 @@
     <div class="container">
 
         <div class="heading">Cadastro de Convênio</div> <br>
-        <center>
-            <div><b>NS BaseTech</b></div>
-            <div class="hr-customizado"></div>
-        </center>
+
+        <div class="NS"><b>NS BaseTech</b></div>
+        <div class="hr-customizado"></div>
+
         <form onsubmit="cadastro_convenio(event)" class="form">
 
             <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_cvn"></input>
@@ -75,6 +75,8 @@
             <input class="input" type="text" name="cnpj" id="cnpj" placeholder="CNPJ"
                 pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}">
             <input class="input" type="text" name="valores" id="valores" placeholder="Valores">
+            <br>
+            <br>
             <h4 class="margem">Data de Contratação</h4>
             <input class="input" type="date" name="data_contratacao" id="data_contratacao"
                 placeholder="Data de Contratação">
