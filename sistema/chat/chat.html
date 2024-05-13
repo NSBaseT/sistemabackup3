@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Chat</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <button onclick="toggleChat()" class="open-chat-btn">Abrir Chat</button>
+
+    <div id="chat-popup" class="chat-popup">
+        <div class="profile-list">
+            <div class="profile" data-name="João">
+                <img src="avatar1.jpg" alt="João">
+                <span class="profile-name">João</span>
+            </div>
+            <div class="profile" data-name="Maria">
+                <img src="avatar2.jpg" alt="Maria">
+                <span class="profile-name">Maria</span>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-header">WhatsApp Chat</div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Mensagens do chat serão exibidas aqui -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="emoji-picker" class="emoji-picker">
+        <!-- Emojis serão exibidos aqui -->
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
+
