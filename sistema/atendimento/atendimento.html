@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Atendimento</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Formulário de Atendimento</h1>
+    </div>
+    <div class="timer">
+        <h2>Tempo de Atendimento</h2>
+        <span id="timer">00:00:00</span>
+        <button id="startButton">Iniciar</button>
+        <button id="pauseButton">Pausar</button>
+        <button id="stopButton">Finalizar Atendimento</button>
+    </div>
+    <div class="content">
+        <div class="options">
+            <h2>Opções</h2>
+            <ul>
+                <li><button onclick="openForm('Atestado')">Atestado</button></li>
+                <li><button onclick="openForm('Anamnese')">Anamnese</button></li>
+                <li><button onclick="openForm('Prontuário')">Prontuário</button></li>
+            </ul>
+        </div>
+        <div class="form-container">
+            <form id="form">
+                <h2 id="formTitle"></h2>
+                <input type="text" id="nomePaciente" placeholder="Nome do Paciente">
+                <div class="form-fields">
+                    <textarea id="formContent" placeholder="Preencha aqui"></textarea>
+                    <input type="file" id="fileInput">
+                </div>
+                <button type="button" id="limparButton">Voltar</button>
+            </form>
+        </div>
+    </div>
+    <div class="history">
+        <h2>Histórico de Atendimentos</h2>
+        <ul id="historyList">
+            <!-- Lista de atendimentos vai ser exibida aqui -->
+        </ul>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+

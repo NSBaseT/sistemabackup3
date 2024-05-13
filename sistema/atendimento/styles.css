@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f5f7;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.timer {
+    text-align: center;
+}
+
+.timer h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.timer span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.timer button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.timer button:hover {
+    background-color: #0056b3;
+}
+
+.options {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+}
+
+.options h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.options ul {
+    list-style: none;
+    padding: 0;
+}
+
+.options li {
+    margin-bottom: 10px;
+}
+
+.options button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.options button:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
+    float: left;
+    width: 65%;
+}
+
+.form-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-fields textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
+}
+
+.form-fields input[type="file"] {
+    margin-top: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.history {
+    clear: both;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #ddd;
+}
+
+.history h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#historyList li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
