@@ -12,9 +12,14 @@ function sendMessage() {
         var time = now.getHours() + ":" + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
         var timeText = document.createTextNode(time);
         
+        var messageStatus = document.createElement("span");
+        messageStatus.classList.add("message-status");
+        messageStatus.textContent = "✓✓";
+        
         messageContainer.appendChild(messageText);
         messageInfo.appendChild(timeText);
         messageContainer.appendChild(messageInfo);
+        messageContainer.appendChild(messageStatus);
 
         document.getElementById("chat-messages").appendChild(messageContainer);
 
@@ -23,6 +28,11 @@ function sendMessage() {
 
         // Limpar o campo de entrada
         messageInput.value = "";
+        
+        // Simular que a mensagem foi lida após 2 segundos
+        setTimeout(function() {
+            messageStatus.classList.add("read");
+        }, 2000);
     }
 }
 
@@ -39,22 +49,21 @@ document.addEventListener("DOMContentLoaded", function() {
     var profiles = document.getElementsByClassName("profile");
     for (var i = 0; i < profiles.length; i++) {
         profiles[i].addEventListener("click", function() {
-            // Código para abrir a conversa com o perfil clicado
-            console.log("Abrir conversa com " + this.dataset.name);
+            var name = this.dataset.name;
+            var status = this.dataset.status;
+            var avatar = this.querySelector("img").src;
+            
+            // Atualizar cabeçalho do chat
+            document.getElementById("chat-title").style.display = "none";
+            document.getElementById("chat-name").textContent = name;
+            document.getElementById("chat-status").textContent = status === "online" ? "Online" : "Offline";
+            document.getElementById("chat-avatar").src = avatar;
+            document.getElementById("chat-avatar").style.display = "block";
+
+            // Limpar mensagens anteriores
+            document.getElementById("chat-messages").innerHTML = "";
+            
+            console.log("Abrir conversa com " + name);
         });
     }
-
-    var emojiButton = document.createElement("button");
-    emojiButton.innerHTML = "&#x1F642;";
-    emojiButton.addEventListener("click", function() {
-        var emojiPicker = document.getElementById("emoji-picker");
-        if (emojiPicker.style.display === "none") {
-            emojiPicker.style.display = "block";
-        } else {
-            emojiPicker.style.display = "none";
-        }
-    });
-    document.getElementById("message-input").insertAdjacentElement("afterend", emojiButton);
 });
-
-
