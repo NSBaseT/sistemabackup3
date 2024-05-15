@@ -783,6 +783,11 @@ document.getElementById('cancelado').addEventListener('click', () => {
 
 
 
+
 function atendimento() {
-    window.location.href = "/sistema/atendimento/atendimento.html";
+    const url = new URL(window.location.href)
+    url.pathname= "/sistema/atendimento/atendimento.html";
+    url.searchParams.set("id", "???");
+    window.location.href = url.toString()
 }
+
