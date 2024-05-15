@@ -271,7 +271,8 @@ app.get("/Fluxo_de_caixa", async (req, res) => {
             id: `esp-${consulta.Especialista}`,
             Descricao: `Pacientes: ${consulta.Especialista}`,
             Valor: String(consulta._sum.Valor_da_Consulta),
-            Tipo: 'Entrada'
+            Tipo: 'Entrada',
+            Especialista: consulta.Especialista
         })
    })
 

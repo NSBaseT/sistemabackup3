@@ -89,11 +89,11 @@ function loadItens() {
 
 function getTotals() {
   const amountIncomes = items
-    .filter((item) => item.Tipo === "Entrada")
+    .filter((item) => item.Tipo === "Entrada" && item.Especialista === Usuario)
     .map((transaction) => Number(transaction.Valor));
 
   const amountExpenses = items
-    .filter((item) => item.Tipo === "Saída")
+    .filter((item) => item.Tipo === "Saída" && item.Especialista === Usuario)
     .map((transaction) => Number(transaction.Valor));
 
   const totalIncomes = amountIncomes
@@ -134,6 +134,7 @@ const getItensBD = async () => {
   Usuario = data.Usuario
 
   await  getItensBD()
+
   loadItens();
 })().catch(console.error)
 

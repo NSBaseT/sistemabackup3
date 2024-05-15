@@ -16,6 +16,10 @@ let timerSeconds = 0;
 let timerPaused = false;
 let atendimentos = [];
 
+let conteudoAtestado = ""
+let conteudoAnaminese = ""
+let conteudoProntuario = ""
+
 // Função para atualizar o tempo do timer
 function updateTimer() {
     if (!timerPaused) {
@@ -58,7 +62,9 @@ stopButton.addEventListener('click', () => {
         // Criando um objeto para representar o atendimento
         const atendimento = {
             tipo: formTitle.textContent,
-            conteudo: formContent.value,
+            conteudoAtestado,
+            conteudoAnaminese,
+            conteudoProntuario,
             dataHora: dataHora,
             tempo: tempoAtendimento,
             paciente: paciente // Referência para o paciente
@@ -86,10 +92,12 @@ stopButton.addEventListener('click', () => {
 
 // Função para exibir os detalhes do atendimento
 function openAtendimentoDetails(atendimento) {
-    formTitle.textContent = atendimento.tipo;
+    conteudoAnaminese = atendimento.conteudoAnaminese
+    conteudoAtestado = atendimento.conteudoAtestado
+    conteudoProntuario = atendimento.conteudoProntuario
+
     nomePacienteInput.value = atendimento.paciente.nome; // Usamos o nome do paciente associado ao atendimento
-    formContent.value = atendimento.conteudo;
-    // Exibir o tempo de atendimento
+
     const tempoAtendimento = atendimento.tempo;
     const hours = Math.floor(tempoAtendimento / 3600);
     const minutes = Math.floor((tempoAtendimento % 3600) / 60);
@@ -100,8 +108,18 @@ function openAtendimentoDetails(atendimento) {
 // Função para abrir o formulário correspondente
 function openForm(title) {
     formTitle.textContent = title;
-    nomePacienteInput.value = '';
-    formContent.value = '';
+
+    if (title === "Anamnese") {
+        formContent.value = conteudoAnaminese;
+    }
+
+    if (title === "Atestado") {
+        formContent.value = conteudoAtestado;
+    }
+
+    if (title === "Prontuário") {
+        formContent.value = conteudoProntuario;
+    }
 }
 
 // Evento de limpar o formulário
@@ -113,3 +131,19 @@ limparButton.addEventListener('click', () => {
 });
 
 
+formContent.addEventListener("change", e => {
+    const title = formTitle.textContent;
+    const content = e.target.value
+
+    if (title === "Anamnese") {
+        conteudoAnaminese = content;
+    }
+
+    if (title === "Atestado") {
+        conteudoAtestado = content;
+    }
+
+    if (title === "Prontuário") {
+         conteudoProntuario = content;
+    }
+})

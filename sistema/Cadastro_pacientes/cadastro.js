@@ -78,7 +78,7 @@ function cadastrar_paciente(event) {
 
 
     if (data.Secretaria) {
-        consultores.forEach(({Usuario, Nome}) => {
+        consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
         })
     } else {

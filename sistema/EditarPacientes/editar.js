@@ -17,7 +17,7 @@ const phonepaiinp = document.getElementById("phonepai")
 const namemaeinp = document.getElementById("namemae")
 const phonemaeinp = document.getElementById("phonemae")
 
-    (async () => {
+    ;(async () => {
         const params = new URLSearchParams(window.location.search)
         const response = await fetch(`/pacientes/${params.get('id')}`)
         const data = await response.json()
@@ -29,10 +29,18 @@ const phonemaeinp = document.getElementById("phonemae")
         addressinp.value = data.Endereco
         numberinp.value = data.Numero
         cepinp.value = data.CEP
-        phonepaiinp = data.phonepai
-        namemaeinp = data.namemae
-        phonemaeinp = data.phonemae
+        // phonepaiinp = data.phonepai
+        // namemaeinp = data.namemae
+        // phonemaeinp = data.phonemae
 
+
+        const response2 = await fetch('/users')
+            const consultores = await response2.json()
+
+
+            consultores.forEach(({Usuario, Nome}) => {
+                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            })
 
     })();
 

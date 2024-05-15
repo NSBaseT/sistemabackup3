@@ -105,6 +105,17 @@ async function carregarLista(force) {
             contentEl.style = 'cursor: pointer; user-select: none;'
 
             contentEl.onclick = () => {
+                pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+
+                nameinp.innerHTML = ''
+                pacientesFiltrados.forEach(item => {
+                    nameinp.innerHTML += `<option value="${item.id}">${item.Nome}</option>`
+                })
+
+                age_name.disabled = true
+                document.getElementById("btn-start-atendimento").style="display:auto"
+
+
                 modAgen.showModal()
 
                 nameinp.value = arg.Nome
@@ -344,6 +355,8 @@ document.getElementById('agendamento').addEventListener('click', () => {
     }
 
     pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+    age_name.disabled = false
+    document.getElementById("btn-start-atendimento").style="display:none"
 
     nameinp.innerHTML = ''
     pacientesFiltrados.forEach(item => {
@@ -767,3 +780,9 @@ document.getElementById('cancelado').addEventListener('click', () => {
 
     modCancelado.showModal()
 });
+
+
+
+function atendimento() {
+    window.location.href = "/sistema/atendimento/atendimento.html";
+}
