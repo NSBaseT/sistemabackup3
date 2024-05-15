@@ -16,12 +16,64 @@
 
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Formulário de Atendimento</h1>
+    <div class="switch-container">
+        <main class="off" id="main-side">
+            <div class="escrita">
+                <h4>
+                    <a href="../cadastro_user/cadastro_user.html">
+                        <i class="bi bi-person-lock"></i> Cadastro de Usuário</a>
+                </h4>
+
+                <h4>
+                    <a href="../cadastro_convenio/cadastro_convenio.html">
+                        <i class="bi bi-journals"></i> Cadastro de Convênio</a>
+                </h4>
+
+                <h4>
+                    <a href="../calendario/calendario.html">
+                        <i class="bi bi-calendar2-check"></i> Agendamento</a>
+                </h4>
+
+                <h4>
+                    <a href="../Fluxo_de_caixa/fluxo.html">
+                        <i class="bi bi-cash-coin"></i> Fluxo de Caixa</a>
+                </h4>
+            </div>
+
+            <div style="margin-top: 80%;">
+                <div class="contato"> Contato </div>
+            </div>
+
+            <div>
+                <a class="contato" href="https://wa.me/message/6JNNR37HJXYQM1">
+                    <i class="bi bi-whatsapp"></i><span>
+                    </span>(19) 98149-4345</a>
+            </div>
+
+            <div>
+                <a class="contato" href="https://www.instagram.com/ns_basetech?igsh=eXZ6aDl4dWt5NmRj">
+                    <i class="bi bi-instagram"></i><span style="margin-left: 5px;"></span>@ns_basetech </a>
+            </div>
+
+
+        </main>
+        <label class="switch">
+            <input type="checkbox" id="ch-side">
+            <span class="slider"></span>
+        </label>
     </div>
+
+<div class="container">
+    
+        <div class="heading">Formulario de Atendimento</div>
+        <br>
+
+        <div class="NS"><b>NS BaseTech</b></div>
+        <div class="hr-customizado"></div>
+
     <div class="timer">
-        <h2>Tempo de Atendimento</h2>
+        <br>
+        <h2 class="heading" style="color:darkcyan;">Tempo de Atendimento</h2>
         <span id="timer">00:00:00</span>
         <button id="startButton">Iniciar</button>
         <button id="pauseButton">Pausar</button>
@@ -39,12 +91,12 @@
         <div class="form-container">
             <form id="form">
                 <h2 id="formTitle"></h2>
-                <input type="text" id="nomePaciente" placeholder="Nome do Paciente">
+                <input style="border-radius: 20px;" type="text" id="nomePaciente" placeholder="Nome do Paciente">
                 <div class="form-fields">
                     <textarea id="formContent" placeholder="Preencha aqui"></textarea>
                     <input type="file" id="fileInput">
                 </div>
-                <button type="button" id="limparButton">Voltar</button>
+                <button class="voltar-button" type="button" id="limparButton">Voltar</button>
             </form>
         </div>
     </div>
