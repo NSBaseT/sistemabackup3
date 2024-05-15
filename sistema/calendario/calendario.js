@@ -299,7 +299,7 @@ const list = document.getElementById("lista")
     const consultores = await response2.json()
 
     if (data.Secretaria) {
-        consultores.forEach(({Usuario, Nome}) => {
+        consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
         })
     } else {
