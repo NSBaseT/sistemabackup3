@@ -33,6 +33,12 @@ body {
     padding: 10px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.profile:hover {
+    background-color: #e0e0e0; /* Cor de preenchimento ao passar o mouse */
 }
 
 .profile img {
@@ -40,10 +46,15 @@ body {
     height: 50px;
     border-radius: 50%;
     margin-bottom: 5px;
+    object-fit: cover;
 }
 
 .profile-name {
     font-weight: bold;
+}
+
+.upload-photo-input {
+    display: none;
 }
 
 .chat {
@@ -74,6 +85,7 @@ body {
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    object-fit: cover;
 }
 
 .chat-name {
@@ -144,44 +156,45 @@ body {
     border: none;
     color: #fff;
     font-size: 1.5em;
-    cursor: pointer;
 }
 
 .message {
-    background-color: #fff;
-    padding: 8px;
-    border-radius: 10px;
-    margin-bottom: 10px;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    max-width: 70%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .message.sent {
-    background-color: #dcf8c6;
     align-self: flex-end;
+    background-color: #DCF8C6;
 }
 
 .message.received {
-    background-color: #fff;
     align-self: flex-start;
+    background-color: #EAEAEA;
 }
 
 .message-info {
-    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinhar ao final do contêiner */
+}
+
+.message-status,
+.message-timestamp,
+.message-delete,
+.message-edit {
+    margin-left: 5px;
+}
+
+.message-delete, .message-edit {
     color: #888;
-    margin-top: 3px;
+    cursor: pointer;
 }
 
-.message-status {
-    font-size: 1em;
-    color: #075e54;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-}
-
-.message-status.read {
-    color: blue;
+.message-delete i, .message-edit i {
+    font-size: 1.2em;
 }
 

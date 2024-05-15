@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Chat</title>
-    <!-- Incluindo Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="chat.css">
 </head>
@@ -15,13 +14,15 @@
 
     <div id="chat-popup" class="chat-popup">
         <div class="profile-list" id="profile-list">
-            <div class="profile" data-name="Nayara" data-status="online">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.svg#person-circle" alt="Nayara">
+            <div class="profile" data-name="Nayara" data-status="online" onclick="openChat(this)">
+                <img src="https://via.placeholder.com/50" alt="Nayara" class="profile-pic" id="nayara-pic" onclick="triggerFileInput(event)">
                 <span class="profile-name">Nayara</span>
+                <input type="file" class="upload-photo-input" onchange="uploadPhoto(event)" style="display: none;">
             </div>
-            <div class="profile" data-name="Sandra" data-status="offline">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.svg#person-circle" alt="Sandra">
+            <div class="profile" data-name="Sandra" data-status="offline" onclick="openChat(this)">
+                <img src="https://via.placeholder.com/50" alt="Sandra" class="profile-pic" id="sandra-pic" onclick="triggerFileInput(event)">
                 <span class="profile-name">Sandra</span>
+                <input type="file" class="upload-photo-input" onchange="uploadPhoto(event)" style="display: none;">
             </div>
         </div>
         <div class="chat">
@@ -34,8 +35,8 @@
                 </div>
                 <button onclick="toggleChat()" class="close-chat-btn">&times;</button>
             </div>
+            <!-- Contêiner de mensagens é criado dinamicamente pelo JavaScript -->
             <div class="chat-messages" id="chat-messages">
-                <!-- Mensagens do chat serão exibidas aqui -->
             </div>
             <div class="chat-input">
                 <input type="text" id="message-input" placeholder="Digite sua mensagem...">

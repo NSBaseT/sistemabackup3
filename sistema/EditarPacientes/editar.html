@@ -9,8 +9,15 @@
     <link rel="stylesheet" href="switch.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
 
+    <style>
+        /* Oculta o subformulário por padrão */
+        #subformi {
+            display: none;
+        }
+    </style>
 
-    <title>cadastro_pacintes</title>
+
+    <title>editar cadastro_pacientes</title>
 </head>
 
 <body>
@@ -34,34 +41,45 @@
 </div>
 <div class="container">
 
-    <div class="heading">Cadastro de Pacientes</div>
+    <div class="heading">Editar Cadastro de Pacientes</div>
     <br>
 
     <div class="NS"><b>NS BaseTech</b></div>
     <div class="hr-customizado"></div>
 
-    <select style="padding: 8px; background: white; border-radius: 8px" id="lista">
-        <option value="-">Selecione um especialista</option>
-    </select>
-
     <form onsubmit="cadastrar_paciente(event)" class="form">
+        <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_ed"></input>
 
-        <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_c"></input>
+        <select style="padding: 8px; background: white; border-radius: 8px" id="lista">
+            <option value="-">Selecione um especialista</option>
+        </select>
+
         <input class="input" name="name" id="name" placeholder="Nome"></input>
-        <input class="input" name="phone" id="phone" placeholder="Telefone"></input>
+        <input class="input" name="phone" id="phone" placeholder="Telefone">
         <input class="input" name="email" id="email" placeholder="E-mail"></input>
-
-        <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
-               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></input>
-        <input class="input"  name="address" id="address" placeholder="Endereço"></input>
+        <input class="input" name="address" id="address" placeholder="Endereço"></input>
         <input class="input" type="NUMBER" name="number" id="number" placeholder="Numero"></input>
         <input class="input" name="cep" id="cep" placeholder="CEP"></input>
+        <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
+            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+        </input>
 
-        <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
+        <div>
+            <input style="margin-top:5%;" type="checkbox" id="mostrarSubformi"> É criança?</input>
+            <form>
+                
+                    <div id="subformi">
+                        <input class="input" name="name" id="namepai"
+                            placeholder="Nome do Pai ou Responsavel"></input>
+                        <input class="input" name="phone" id="phonepai" placeholder="Telefone Pai"></input>
+                        <input class="input" name="name" id="namemae"
+                            placeholder="Nome da Mãe ou Responsavel"></input>
+                        <input class="input" name="phone" id="phonemae" placeholder="Telefone Mãe"></input>
+                    </div>
+                
+            </form>
+            <input class="login-button" type="submit" value="CADASTRAR" id="btn_cadastrar"></input>
 
-    </form>
-    
-</div>
 
 
 <script src="../global/auth.js"></script>
