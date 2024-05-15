@@ -122,6 +122,8 @@ function openForm(title) {
     }
 }
 
+
+
 // Evento de limpar o formulário
 limparButton.addEventListener('click', () => {
     formTitle.textContent = '';
@@ -129,6 +131,9 @@ limparButton.addEventListener('click', () => {
     formContent.value = '';
     fileInput.value = '';
 });
+
+
+
 
 
 formContent.addEventListener("change", e => {
