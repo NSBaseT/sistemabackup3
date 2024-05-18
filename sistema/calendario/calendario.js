@@ -523,7 +523,7 @@ function agendamento(event) {
                 Especialista: list.value,
                 Data_do_Atendimento: data_atendimentoinp.value,
                 Horario_da_consulta: horario_consultainp.value,
-                Valor_da_Consulta: valor_consultainpinp.value,
+                Valor_da_Consulta: Number(valor_consultainpinp.value),
                 Status_da_Consulta: status_consultainp.value,
                 Status_do_pagamento: status_pagamentoinp.value,
                 observacao: observacaoinp.value,
@@ -780,9 +780,6 @@ document.getElementById('cancelado').addEventListener('click', () => {
 
     modCancelado.showModal()
 });
-
-
-
 
 function atendimento() {
     const url = new URL(window.location.href)
