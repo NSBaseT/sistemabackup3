@@ -18,7 +18,7 @@ btnNew.onclick = () => {
   if (descItem.value === "" || amount.value === "" || type.value === "") {
     return alert("Preencha todos os campos!");
   }
-
+  
   const Descricao = descItem.value
   const Valor = parseInt(amount.value, 10);
   const Tipo = type.value
@@ -39,9 +39,13 @@ btnNew.onclick = () => {
     }
   }).then(() => {
     loadItens()
-  })
+  }) 
 
 };
+
+document.getElementById('btnNew').addEventListener('click', function() {
+  location.reload();
+});
 
 function deleteItem(index) {
 
