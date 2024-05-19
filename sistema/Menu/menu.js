@@ -37,6 +37,8 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    if (data.Secretaria) {
       const btnFluxo = document.getElementById("btn_fluxo");
       btnFluxo.parentNode.removeChild(btnFluxo);
+      const backdrop3 = document.getElementById("backdrop3");
+      backdrop3.parentNode.removeChild(backdrop3);
       
    } else {
       // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
