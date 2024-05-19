@@ -122,7 +122,7 @@ stopButton.addEventListener('click', () => {
         // listItem.textContent = `${dataHora} - ${nomePaciente}`;
         // listItem.addEventListener('click', () => openAtendimentoDetails(atendimento));
         // historyList.appendChild(listItem);
-        getAllAtendimentos();
+        //getAllAtendimentos();
     }
     // Limpa campos
     formTitle.textContent = '';
@@ -222,4 +222,4 @@ getAtendimentos().then(response => response.json()).then(data => {
 })
 }
 
-getAllAtendimentos();
+//getAllAtendimentos();

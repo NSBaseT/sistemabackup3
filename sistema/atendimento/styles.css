@@ -223,6 +223,7 @@ button[type="submit"]:hover {
 }
 
 .history {
+    
     clear: both;
     margin-top: 30px;
     padding-top: 30px;
@@ -238,6 +239,12 @@ button[type="submit"]:hover {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
+    overflow: hidden;
+}
+
+#historyList ul {
+    
+    overflow: auto;
 }
 
 .hr-customizado {
