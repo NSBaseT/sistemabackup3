@@ -1,3 +1,9 @@
+document.getElementById("btn_voltar_atd").addEventListener("click", () => {
+    window.location.href = '../calendario/calendario.html';
+});
+
+
+
 // Selecionando elementos do DOM
 const timerElement = document.getElementById('timer');
 const startButton = document.getElementById('startButton');
@@ -81,6 +87,8 @@ stopButton.addEventListener('click', () => {
             paciente: paciente // Referência para o paciente
         };
         
+        
+
         fetch("/atendimento", {
             method: "POST",
             body: JSON.stringify({
@@ -102,6 +110,8 @@ stopButton.addEventListener('click', () => {
 
         // Adicionando o atendimento à lista de atendimentos do paciente
         paciente.atendimentos.push(atendimento);
+
+        
 
         console.log(atendimento)
 
@@ -125,7 +135,7 @@ stopButton.addEventListener('click', () => {
 
 // Função para exibir os detalhes do atendimento
 function openAtendimentoDetails(atendimento) {
-    console.log(atendimento)
+    // console.log(atendimento)
     conteudoAnaminese = atendimento.conteudoAnaminese
     conteudoAtestado = atendimento.conteudoAtestado
     conteudoProntuario = atendimento.conteudoProntuario
@@ -160,12 +170,12 @@ function openForm(title) {
 
 
 // Evento de limpar o formulário
-limparButton.addEventListener('click', () => {
-    formTitle.textContent = '';
-    nomePacienteInput.value = '';
-    formContent.value = '';
-    fileInput.value = '';
-});
+// limparButton.addEventListener('click', () => {
+//     formTitle.textContent = '';
+//     nomePacienteInput.value = '';
+//     formContent.value = '';
+//     fileInput.value = '';
+// });
 
 formContent.addEventListener("change", e => {
     const title = formTitle.textContent;
@@ -199,7 +209,7 @@ getAtendimentos().then(response => response.json()).then(data => {
         // Cria o botão "Visualizar"
         const viewButton = document.createElement('button');
         viewButton.textContent = 'Visualizar';
-        viewButton.classList.add('voltar-button'); 
+        viewButton.classList.add('visual-button'); 
         viewButton.addEventListener('click', () => openAtendimentoDetails(data.paciente[index]));
 
         // Adiciona o botão ao elemento <li>

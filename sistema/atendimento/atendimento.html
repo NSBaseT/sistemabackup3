@@ -14,6 +14,14 @@
 
 <title>Formulário de Atendimento</title>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sua função aqui
+        getAllAtendimentos();;
+    });
+
+    </script>
+
 </head>
 <body>
     <div class="switch-container">
@@ -64,6 +72,7 @@
     </div>
 
 <div class="container">
+    <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_atd"></input>
     
         <div class="heading">Formulario de Atendimento</div>
         <br>
@@ -100,7 +109,7 @@
                     <textarea id="formContent" placeholder="Preencha aqui"></textarea>
                     <input type="file" id="fileInput">
                 </div>
-                <button class="voltar-button" type="button" id="limparButton">Voltar</button>
+                
             </form>
         </div>
     </div>
@@ -112,7 +121,7 @@
             <!-- Lista de atendimentos vai ser exibida aqui -->
             
         </ul>
-        <button class="voltar-button" type="button" id="editatend">Editar</button>
+       
     </div>
 </div>
 <script src="script.js"></script>
