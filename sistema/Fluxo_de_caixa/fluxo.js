@@ -20,7 +20,7 @@ btnNew.onclick = () => {
   }
 
   const Descricao = descItem.value
-  const Valor = amount.value
+  const Valor = parseInt(amount.value, 10);
   const Tipo = type.value
 
   descItem.value = "";
