@@ -90,3 +90,15 @@ model cadastro_prof {
  Especialidade               String
  Registro_do_Profissional    String
 }
+
+model Atendimento {
+  id                  String @id @default(uuid()) //este aqui é um comando do prisma pra gerar um id automatico
+  id_agendamento      String
+  id_paciente        String
+  conteudoAtestado String
+  conteudoAnaminese String
+  conteudoProntuario String
+  dataHora String
+  tempo String
+}
+

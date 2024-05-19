@@ -11,6 +11,14 @@ const fileInput = document.getElementById('fileInput');
 const historyList = document.getElementById('historyList');
 const limparButton = document.getElementById('limparButton');
 
+const url = new URL(window.location.href);
+const params = new URLSearchParams(url.search);
+
+const id_agendamento = params.get('id');
+const id_paciente = params.get('id_paciente');
+const nome_paciente = params.get('nome');
+nomePacienteInput.value = nome_paciente;
+
 let timerInterval;
 let timerSeconds = 0;
 let timerPaused = false;
@@ -62,6 +70,9 @@ stopButton.addEventListener('click', () => {
         // Criando um objeto para representar o atendimento
         const atendimento = {
             tipo: formTitle.textContent,
+            id_atendimento: "",
+            id_agendamento: id_agendamento,
+            id_paciente: id_paciente,
             conteudoAtestado,
             conteudoAnaminese,
             conteudoProntuario,
@@ -70,16 +81,38 @@ stopButton.addEventListener('click', () => {
             paciente: paciente // Referência para o paciente
         };
         
+        fetch("/atendimento", {
+            method: "POST",
+            body: JSON.stringify({
+                id_agendamento: atendimento.id_agendamento,
+                id_paciente: atendimento.id_paciente,
+                conteudoAtestado: atendimento.conteudoAtestado,
+                conteudoAnaminese: atendimento.conteudoAnaminese,
+                conteudoProntuario: atendimento.conteudoProntuario,
+                tempo: atendimento.tempo + "",
+                dataHora: atendimento.dataHora
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).then(data => {
+            atendimento.id_atendimento = data.id;
+            alert("Atendimento Registrado com sucesso!")
+        }).catch(() => alert("Erro ao registrar atendimento"))
+
         // Adicionando o atendimento à lista de atendimentos do paciente
         paciente.atendimentos.push(atendimento);
+
+        console.log(atendimento)
 
         // Adicionando o atendimento à lista geral de atendimentos
         atendimentos.push(atendimento);
 
-        const listItem = document.createElement('li');
-        listItem.textContent = `${dataHora} - ${nomePaciente}`;
-        listItem.addEventListener('click', () => openAtendimentoDetails(atendimento));
-        historyList.appendChild(listItem);
+        // const listItem = document.createElement('li');
+        // listItem.textContent = `${dataHora} - ${nomePaciente}`;
+        // listItem.addEventListener('click', () => openAtendimentoDetails(atendimento));
+        // historyList.appendChild(listItem);
+        getAllAtendimentos();
     }
     // Limpa campos
     formTitle.textContent = '';
@@ -92,11 +125,13 @@ stopButton.addEventListener('click', () => {
 
 // Função para exibir os detalhes do atendimento
 function openAtendimentoDetails(atendimento) {
+    console.log(atendimento)
     conteudoAnaminese = atendimento.conteudoAnaminese
     conteudoAtestado = atendimento.conteudoAtestado
     conteudoProntuario = atendimento.conteudoProntuario
 
-    nomePacienteInput.value = atendimento.paciente.nome; // Usamos o nome do paciente associado ao atendimento
+    // nomePacienteInput.value = atendimento.paciente.nome; // Usamos o nome do paciente associado ao atendimento
+    nomePacienteInput.value = nome_paciente; // Usamos o nome do paciente associado ao atendimento
 
     const tempoAtendimento = atendimento.tempo;
     const hours = Math.floor(tempoAtendimento / 3600);
@@ -132,10 +167,6 @@ limparButton.addEventListener('click', () => {
     fileInput.value = '';
 });
 
-
-
-
-
 formContent.addEventListener("change", e => {
     const title = formTitle.textContent;
     const content = e.target.value
@@ -152,3 +183,33 @@ formContent.addEventListener("change", e => {
          conteudoProntuario = content;
     }
 })
+
+async function getAtendimentos() {
+    const response_atendimentos = await fetch(`/atendimento/${id_paciente}`)
+    return response_atendimentos;
+}
+
+function getAllAtendimentos (){
+getAtendimentos().then(response => response.json()).then(data => {
+    for (let index = 0; index < data.paciente.length; index++) {
+
+        const listItemUpdated = document.createElement('li');
+        listItemUpdated.textContent = `${data.paciente[index].dataHora} - ${nome_paciente}`;
+
+        // Cria o botão "Visualizar"
+        const viewButton = document.createElement('button');
+        viewButton.textContent = 'Visualizar';
+        viewButton.classList.add('voltar-button'); 
+        viewButton.addEventListener('click', () => openAtendimentoDetails(data.paciente[index]));
+
+        // Adiciona o botão ao elemento <li>
+        listItemUpdated.appendChild(viewButton);
+
+        // Adiciona o elemento <li> à lista de histórico (historyList)
+        historyList.appendChild(listItemUpdated);
+    }
+    
+})
+}
+
+getAllAtendimentos();

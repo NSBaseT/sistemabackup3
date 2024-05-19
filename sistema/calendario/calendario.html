@@ -95,8 +95,9 @@
             <input class="login-button" type="button" value="FECHAR" id="btn-close">
 
 
+            <input type="hidden" id="id_agendamento" name="id_agendamento">
             
-            <input class="login-button" type="button" onclick="atendimento()" value="Iniciar atendimento" id="btn-start-atendimento">
+            <input class="login-button" type="button" onclick="atendimento(document.getElementById('id_agendamento').value, document.getElementById('age_name').value)" value="Iniciar atendimento" id="btn-start-atendimento">
 
         </form>
     </dialog>

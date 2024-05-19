@@ -351,6 +351,37 @@ app.post("/cadastro_prof", async (req, res) => {
     })
 })
 
+app.post("/atendimento", async (req, res) => {
+    const newRecord = await prisma.atendimento.create({
+        data: req.body
+    })
+
+    res.status(201).json({ id: newRecord.id })
+
+})
+
+app.get("/atendimento/:id", async (req, res) => {
+    const paciente = await prisma.atendimento.findMany({
+        where: {id_paciente: req.params.id}
+    })
+    res.status(200).json({paciente})
+})
+
+app.put("/atendimento", async (req, res) => {
+    await prisma.atendimento.update({
+        data: req.body,
+        where: {
+            id: req.body.id
+        }
+    })
+
+
+    res.json({
+        message: "ok"
+    })
+
+})
+
 app.listen(porta, () => {
     console.log(`servidor rodando na porta ${porta}`)
 })

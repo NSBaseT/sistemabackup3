@@ -127,6 +127,7 @@ async function carregarLista(force) {
                 status_consultainp.value = arg.Status_da_Consulta
                 status_pagamentoinp.value = arg.Status_do_pagamento
                 observacaoinp.value = arg.observacao
+                id_agendamento.value = arg.id
 
                 document.getElementById("formagendamento").dataset.agendamentoId = arg.id
             }
@@ -372,6 +373,7 @@ document.getElementById('agendamento').addEventListener('click', () => {
     status_consultainp.value = ""
     status_pagamentoinp.value = ""
     observacaoinp.value = ""
+    id_agendamento.value = ""
     modAgen.showModal()
 });
 
@@ -392,6 +394,7 @@ const valor_consultainpinp = document.getElementById("valor_consulta")
 const status_consultainp = document.getElementById("status_c")
 const status_pagamentoinp = document.getElementById("status_pagamento")
 const observacaoinp = document.getElementById("observacao")
+const id_agendamento = document.getElementById("id_agendamento")
 
 function atualizaTelefone() {
     const paciente = pacientesFiltrados.find(paciente => paciente.id = nameinp.value)
@@ -781,10 +784,13 @@ document.getElementById('cancelado').addEventListener('click', () => {
     modCancelado.showModal()
 });
 
-function atendimento() {
+function atendimento(id, nome) {
+    const nomePaciente = age_name.options[age_name.selectedIndex].text;
     const url = new URL(window.location.href)
     url.pathname= "/sistema/atendimento/atendimento.html";
-    url.searchParams.set("id", "???");
+    url.searchParams.set("id", id);
+    url.searchParams.set("id_paciente", nameinp.value);
+    url.searchParams.set("nome", nomePaciente);
     window.location.href = url.toString()
 }
 
