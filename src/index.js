@@ -40,11 +40,11 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/verify", async (req, res) => {
-    const {usuario} = jsonwebtoken.verify(req.body.token, SECRET)
+    const { usuario } = jsonwebtoken.verify(req.body.token, SECRET)
     const user = await prisma.cadastro_user.findUniqueOrThrow({
-       where:{
-           Usuario: usuario
-       }
+        where: {
+            Usuario: usuario
+        }
     })
     res.json(user)
 })
@@ -86,7 +86,7 @@ app.post("/agendamento", async (req, res) => {
 app.put("/agendamento", async (req, res) => {
     await prisma.agendamento.update({
         data: req.body,
-        where: {id: req.body.id}
+        where: { id: req.body.id }
     })
 
     res.status(200).json({
@@ -104,9 +104,9 @@ app.get("/agendamentos", async (req, res) => {
             NOT: {
                 Status_da_Consulta: 'Cancelado'
             }
-          }
+        }
     })
-    res.status(201).json(agendamentos) 
+    res.status(201).json(agendamentos)
 })
 
 app.get("/agendamentos_filtrado", async (req, res) => {
@@ -116,18 +116,20 @@ app.get("/agendamentos_filtrado", async (req, res) => {
         orderBy: {
             Horario_da_consulta: 'asc'
         },
-        where: {Nome: filter, NOT: {
-            Status_da_Consulta: 'Cancelado'
-        }},
+        where: {
+            Nome: filter, NOT: {
+                Status_da_Consulta: 'Cancelado'
+            }
+        },
     })
-    res.status(201).json(agendamentos_filtrados) 
+    res.status(201).json(agendamentos_filtrados)
 })
 
 app.put("/agendamento_desabilitado", async (req, res) => {
     // STATUS - CANCELADO
     await prisma.agendamento.update({
         data: req.body,
-        where: {id: req.body.id}
+        where: { id: req.body.id }
     })
 
     res.status(200).json({
@@ -137,14 +139,14 @@ app.put("/agendamento_desabilitado", async (req, res) => {
 
 app.get("/pacientes", async (req, res) => {
     const pacientes = await prisma.cadastro_pacientes.findMany({
-        orderBy: {Nome: 'asc'}
+        orderBy: { Nome: 'asc' }
     })
     res.status(200).json(pacientes)
 })
 
 app.get("/pacientes/:id", async (req, res) => {
     const paciente = await prisma.cadastro_pacientes.findUniqueOrThrow({
-        where: {id: req.params.id}
+        where: { id: req.params.id }
     })
     res.status(200).json(paciente)
 })
@@ -253,20 +255,20 @@ app.post("/Fluxo_de_caixa", async (req, res) => {
 // Rota Receber = app.get
 
 app.get("/Fluxo_de_caixa", async (req, res) => {
-   const fluxos = await prisma.Fluxo_de_caixa.findMany()
+    const fluxos = await prisma.Fluxo_de_caixa.findMany()
 
 
-   const consultas = await prisma.Agendamento.groupBy({
-    by: ['Especialista'],
+    const consultas = await prisma.Agendamento.groupBy({
+        by: ['Especialista'],
         _sum: {
             Valor_da_Consulta: true,
         },
         where: {
             Status_do_pagamento: 'Pago'
         }
-   })
+    })
 
-   consultas.forEach((consulta) => {
+    consultas.forEach((consulta) => {
         fluxos.push({
             id: `esp-${consulta.Especialista}`,
             Descricao: `Pacientes: ${consulta.Especialista}`,
@@ -274,7 +276,7 @@ app.get("/Fluxo_de_caixa", async (req, res) => {
             Tipo: 'Entrada',
             Especialista: consulta.Especialista
         })
-   })
+    })
 
     res.json(fluxos)
 
@@ -316,13 +318,13 @@ app.delete("/Fluxo_de_caixa", async (req, res) => {
 
 app.get("/Lista_espera", async (req, res) => {
     const lista_espera = await prisma.Espera.findMany()
- 
- 
-     res.json(lista_espera)
- 
- })
 
- app.post("/Lista_espera", async (req, res) => {
+
+    res.json(lista_espera)
+
+})
+
+app.post("/Lista_espera", async (req, res) => {
     await prisma.Espera.create({
         data: req.body,
     })
@@ -336,9 +338,9 @@ app.get("/Lista_espera", async (req, res) => {
 
 app.get("/users", async (_, res) => {
     const users = await prisma.cadastro_user.findMany()
- 
- 
-     res.json(users)
+
+
+    res.json(users)
 })
 
 app.post("/cadastro_prof", async (req, res) => {
@@ -362,9 +364,9 @@ app.post("/atendimento", async (req, res) => {
 
 app.get("/atendimento/:id", async (req, res) => {
     const paciente = await prisma.atendimento.findMany({
-        where: {id_paciente: req.params.id}
+        where: { id_paciente: req.params.id }
     })
-    res.status(200).json({paciente})
+    res.status(200).json({ paciente })
 })
 
 app.put("/atendimento", async (req, res) => {
@@ -380,6 +382,29 @@ app.put("/atendimento", async (req, res) => {
         message: "ok"
     })
 
+})
+
+app.post("/chat", async (req, res) => {
+    const messages = await prisma.messages.findMany({
+        where: {
+            OR: [
+                { from: req.body.from, to: req.body.to },
+                { to: req.body.from, from: req.body.to }
+            ]
+        },
+        orderBy: { createdAt: 'asc' },
+        take: -20
+    })
+
+    res.status(200).json(messages)
+})
+
+app.post("/chat/message", async (req, res) => {
+    const message = await prisma.messages.create({
+        data: req.body
+    })
+
+    res.status(200).json(message)
 })
 
 app.listen(porta, () => {
