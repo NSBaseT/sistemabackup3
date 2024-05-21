@@ -1,6 +1,5 @@
 verificaAutenticado()
 
-
 document.getElementById("btn_cadastro").addEventListener("click", () => {
     window.location.href = '../Cadastro_pacientes/Cadastro.html'
  })
@@ -17,6 +16,26 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
       mainSide.classList.add("off") 
    }
  })
+
+
+
+const modChat = document.getElementById('mod-chat')
+document.getElementById('mod-chat').addEventListener('click', () => {
+   
+   function toggleChat() {
+      var chatPopup = document.getElementById("chat-popup");
+      if (chatPopup.style.display === "none" || chatPopup.style.display === "") {
+          chatPopup.style.display = "block";
+      } else {
+          chatPopup.style.display = "none";
+      }
+   }  
+});
+modChat.showModal()
+
+
+
+
 
  let Usuario = ''
 
